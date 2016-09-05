@@ -1,0 +1,268 @@
+/***********************
+VARIÁVEIS
+************************/
+
+//fonts
+$primary-font: 'Varela', sans-serif;
+$secondary-font: 'Varela', sans-serif;
+$headline-font: 'Architects Daughter', sans-serif;
+
+$primary-color: #fca9aa;
+$secondary-color: #b3797a;
+$text-color: #b5b5b5;
+$white: #fff;
+$off-white: #eeeef2;
+
+
+//custom button
+$btn-sample-color:              #fff !default;
+$btn-sample-bg:                 #000 !default;
+$btn-sample-bg2:                lighten($btn-sample-bg, 13.5%) !default;
+$btn-sample-border:             darken($btn-sample-bg, 5%) !default;
+
+
+/***********************
+GLOBAL
+************************/
+
+.pb50 { padding-bottom: 50px; }
+.pb40 { padding-bottom: 40px; }
+.pb30 { padding-bottom: 30px; }
+.pb20 { padding-bottom: 20px; }
+.pb10 { padding-bottom: 10px; }
+
+.pt50 { padding-top: 50px; }
+.pt40 { padding-top: 40px; }
+.pt30 { padding-top: 30px; }
+.pt20 { padding-top: 20px; }
+.pt10 { padding-top: 10px; }
+
+
+.mb100 { margin-bottom: 100px; }
+.mb90 { margin-bottom: 90px; }
+.mb80 { margin-bottom: 80px; }
+.mb70 { margin-bottom: 70px; }
+.mb60 { margin-bottom: 60px; }
+.mb50 { margin-bottom: 50px; }
+.mb40 { margin-bottom: 40px; }
+.mb30 { margin-bottom: 30px; }
+.mb20 { margin-bottom: 20px; }
+.mb10 { margin-bottom: 10px; }
+
+.mt100 { margin-top: 100px; }
+.mt90 { margin-top: 90px; }
+.mt80 { margin-top: 80px; }
+.mt70 { margin-top: 70px; }
+.mt60 { margin-top: 60px; }
+.mt50 { margin-top: 50px; }
+.mt40 { margin-top: 40px; }
+.mt30 { margin-top: 30px; }
+.mt20 { margin-top: 20px; }
+.mt10 { margin-top: 10px; }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $headline-font;
+    font-weight: 400;
+    color: $primary-color;
+    text-transform: uppercase;
+}
+
+h6 { font-size: 11px; }
+
+p { font-family: $secondary-font; color: $text-color;}
+
+hr {border-color: #dadada;}
+
+.reset-indent {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*Scroll up*/
+.scrollup {
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+    position: fixed;
+    right: 20px;
+    bottom: -50px;
+    padding: 0 8px;
+    font-size: 0;
+    color: #fff;
+    background-color: $secondary-color;
+    @include transition(0.5s);
+}
+.scrollup:hover {
+    color: #fff;
+    background-color:#111;
+}
+.scrollup i {
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 35px;
+}
+.scrollup.show {
+    bottom: 15px;
+    opacity: 0.8;
+    @include transition(0.5s);
+}
+
+
+/***********************
+CUSTOM BUTTON
+************************/
+
+.btn-custom-white {
+    text-decoration: none;
+    font-family: $primary-font;
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 40px;
+    color: #fff;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    @include transition(0.5s);
+    &:hover {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: $secondary-color;
+        text-decoration: none;
+    } 
+}
+
+.btn-custom-black {
+    text-decoration: none;
+    font-family: $primary-font;
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 40px;
+    color: #111;
+    border: 1px solid #111;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    background-color: transparent;
+    @include transition(0.5s);
+    &:hover {
+        background-color: #111;
+        border: 1px solid #111;
+        color: #fff;
+        text-decoration: none;
+    } 
+}
+
+.btn-custom-rosa {
+    text-decoration: none;
+    font-family: $primary-font;
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 40px;
+    color: $secondary-color;
+    border: 1px solid $secondary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    background-color: transparent;
+    @include transition(0.5s);
+    &:hover {
+        background-color: $secondary-color;
+        border: 1px solid $secondary-color;
+        color: #fff;
+        text-decoration: none;
+    } 
+}
+
+.btn-custom-brand {
+    text-decoration: none;
+    font-family: $primary-font;
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 40px;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    background-color: transparent;
+    @include transition(0.5s);
+    &:hover {
+        background-color: $primary-color;
+        border: 1px solid $primary-color;
+        color: #fff;
+        text-decoration: none;
+    } 
+}
+
+.btn-custom {
+    text-decoration: none;
+    font-family: $primary-font;
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    background-color: $primary-color;
+    @include transition(0.5s);
+    &:hover {
+        background-color: $secondary-color;
+        color: #fff;
+        text-decoration: none;
+    } 
+}
+
+
+/***********************
+PÁGINAS
+************************/
+
+.title-section {
+    margin: 30px 0; 
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 0;
+    }
+
+}
+
+
+.internas { 
+    background-color: $off-white; 
+    padding: 60px 0;
+    margin-top: -15px;
+}
+
+.tracinho {
+    background-color: $primary-color;
+    width: 90px;
+    height: 2px;
+    display: inline-block;
+    margin-top: -10px!important;
+
+    &.traco-menor { 
+        width: 40px; 
+        background-color: $secondary-color;
+    }
+}  
+
+
+
+.footPage {
+    background-color: #EEEEF2;
+    margin: 50px 0 50px;
+    min-height: 20px;
+}

@@ -1,0 +1,115 @@
+/**********************
+	FOOTER
+************************/
+
+.section-instagram {
+	
+	padding-bottom: 30px;
+	background-color: #d4c4c5;
+
+	&-bar {
+		padding: 10px 0;
+		background-color: #d4c4c5;
+		text-align: center;
+		font-size: 21px;
+		color: $white;
+		font-family: $headline-font;
+		font-weight: normal;
+		i {
+			font-size: 1.2em;
+		}
+	}
+
+#instaShowGallery_1 .instashow-gallery-control-arrow::before, #instaShowGallery_1 .instashow-gallery-control-arrow::after {
+    background: $primary-color;
+}	
+
+#instaShowGallery_1 .instashow-gallery-control-arrow:hover::before, #instaShowGallery_1 .instashow-gallery-control-arrow:hover::after {
+    background: $secondary-color;
+}
+	
+}
+
+
+.footer {
+	background-color: $off-white;
+	text-align: center;
+	width: 100%;
+	font-family: $primary-font;	
+	padding: 60px 0;
+	text-transform: uppercase;
+	font-size: 11px;
+	
+	.title-widget { 
+		margin-bottom: 0;
+		color: $secondary-color;
+	}
+
+	ul {padding: 0;}
+	
+	li {
+		display: inline-block;
+
+		i {	
+			margin-right: 5px;
+			margin-bottom: 10px;
+			font-size: 29px;
+			border: 2px solid $primary-color;
+			padding: 8px 10px;
+			@include rounded-corners(50%, 50%, 50%, 50%);
+			@include transition(0.5s);
+			&:hover {
+				background-color: $primary-color;
+				color: $white;
+			}
+		}
+
+		a { 
+			color: $primary-color;
+			text-decoration: none;
+		}
+	}
+
+	.content-widget { 
+		margin-top: 30px; 
+		p { 
+			font-size: 13px; 
+			color: $secondary-color;
+		}
+	}
+
+	// DEIXA O FB LIKEBOX RESPONSIVO
+	#fb-root {display: none;}
+	.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+	  width: 100% !important;
+	}	
+
+}
+
+.imgFooterMaisVistos { margin-left: 5px; }
+
+.rodape {
+	background-color: $primary-color;
+	padding: 23px 0 15px;
+	p {
+		font-size: 13px;
+		color: #fff;
+		a {
+			color: inherit;
+			&:hover {
+				color: $secondary-color;
+				text-decoration: none;
+			}
+		}	
+	}
+	i {
+		color: $secondary-color;
+			&:hover {
+				color: $white;
+				text-decoration: none;
+			}		
+	}
+}
+
+
+

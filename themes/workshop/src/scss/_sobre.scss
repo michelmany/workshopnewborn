@@ -1,0 +1,30 @@
+#sobre { }
+
+.sobre {
+
+	p { margin-top: 25px; margin-bottom: 25px; }
+
+	.icons-about {
+
+		li {
+			display: inline-block;
+				i {
+					font-size: 20px;
+					margin: 18px 8px;
+					color: $secondary-color;
+					@include transition(0.5s);					
+
+					&:hover {
+						color: $primary-color;
+						@include transition(0.3s);
+					}				
+				}			
+		}		
+
+
+	}
+
+
+
+}
+

@@ -1,0 +1,213 @@
+/***********************
+	HOME
+************************/
+#page-top {padding-top: 0.1px;} // HACK PARA FUNCIONAR O PAGE-TOP HOME (SCROLL)
+
+section.slider {
+	margin: 0 0 0;
+	position: relative;
+	text-align: center;
+	width: 100%;
+
+	.bg-slide-black { background:rgba(0,0,0,0.4) }	
+	
+	//CUSTOM CONTROLS
+	.devrama-slider .button-slider{
+		background-color: #fff;
+		padding: 1.2em 2em;
+		border-radius: 0;
+		border: 1px solid #CCC;
+		border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+		color: #111 !important;
+		text-decoration: none;
+		line-height: 1.2em;
+		cursor: pointer;
+	}
+	.devrama-slider .button-slider:hover{background-color: #111;color: #fff !important;}
+	.devrama-slider .button-previous {position: absolute;top: 50%;left: 10px;}
+	.devrama-slider .button-next {position: absolute;top: 50%;right: 10px;}
+
+	// CUSTOM PROGRESS BAR
+	.devrama-slider .slider-progress {position: absolute;top: 0;left: 0;width: 100%;height: 5px;}
+	.devrama-slider .slider-progress .bar {background-color: $secondary-color;}
+	
+	//CAIXA DE MENSAGEM
+	.box-slide {
+		width: 100%;
+		h1 {font-size: 55px;}
+		h5 {color: #fff; font-family: $primary-font;}
+	}
+			
+}
+
+// SOBRE O FOTÓGRAFO
+section.sobre { 
+	background-color: #fff; 
+	padding: 100px 0;
+}
+
+//video youtube responsive
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+
+.section-default {
+	padding: 100px 0;
+	text-align: center;
+
+	//BLOG
+	&.section-blog {
+		background-color: #fcd7b0; 
+		.title-section {
+			.title { color: $white;	}
+			.tracinho {	background-color: $white; }
+		}
+		.section-blog-item {
+			background-color: $white;
+			max-width: 350px;
+			margin: 30px auto 0;	
+
+			@media screen and (max-width: 991px) {
+				margin-bottom: 25px;
+			}			
+			&-content {
+				background-color: $white;
+				padding: 30px;
+				color: $white;
+				height: 275px;		
+				span {
+					margin: 20px 10px;
+				}
+
+			}
+		}
+	}
+
+	//WORKSHOPS
+	&.section-workshops {
+		background-color: #BED8C9; 
+		.title-section {
+			.title { color: $white;	}
+			.tracinho {	background-color: $white; }
+		}
+		.section-workshops-item {
+			background-color: $white;
+			max-width: 350px;	
+			margin: 30px auto 0;
+			@media screen and (max-width: 991px) {
+				margin-bottom: 25px;
+			}
+			&-content {
+				background-color: $white;
+				padding: 30px;
+				color: $white;
+				height: 275px;			
+	
+				span {
+					margin: 20px 10px;
+				}
+			}
+		}
+	}
+
+	// DEPOIMENTOS
+	&.section-depoimentos {
+		background-color: $white;
+		margin: 0 auto;
+
+		@media screen and (min-width: 991px) {
+			max-width: 70%;
+		}
+		p.sentBy {
+		    text-transform: uppercase;	
+		    margin-top: 30px;
+		    font-family: $primary-font;	
+			i {	
+				color: $secondary-color; 
+				margin-right: 5px;
+			}
+		}
+	}	
+
+	//LAST JOBS
+	&.section-lastjobs {
+		background-color: $off-white;
+		#owl-lastJobs .item{
+			margin: 30px 0;
+		}
+		#owl-lastJobs .item img{
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		}
+		h5 {
+			border: 1px solid #111;
+			display: inline-block;
+			padding: 15px 25px;
+			text-align: center;
+			clear: both;
+		}
+	}	
+
+
+}
+
+//BLOG - POSTS INTERNOS
+.section-posts {
+	text-align: center;
+	background-color: $white;
+	.section-blog-item {
+		margin-bottom: 30px;
+
+		&-content {
+			padding: 30px;
+			background-color: #fcd7b0;
+			height: 275px;
+			p {
+				color: $white;
+			}
+			h5 {
+				color: $secondary-color;
+			}
+		}
+	}
+}
+
+.page-scroll-down {
+	font-size: 2em;
+	margin: 30px 0 0;
+	padding: 10px;
+	display: inline-block;
+	@include transition(0.5s);
+	&:hover {
+		opacity: 0.4;
+	}
+
+	&.rosa {
+		color: $secondary-color;
+	}
+	&.brand {
+		color: $primary-color;
+	}
+	&.white {
+		color: $white;	
+	}
+	&.grey {
+		color: $text-color;	
+	}	
+}
+
+

@@ -1,0 +1,132 @@
+/***********************
+	MEDIA QUERY
+************************/
+
+@media (max-width: 1999px){
+
+	.navbar-brand {
+		margin-top: 15px;
+	    img { max-height:100px; max-width: 270px;}
+	}
+
+	.navbar-default .navbar-nav > li > a { font-size: 14px; }
+
+	section.slider {
+		.box-slide {
+			margin-top: -50px !important;
+			h4 {margin-top: -50px;}
+			h2 {margin-top: -30px;}
+		}		
+	}
+
+}
+
+
+/***********************
+	DESKTOP
+************************/
+@media (max-width: 991px){
+
+
+	.navbar-brand {
+		margin-top: 5px;
+	    img { 
+	    	max-height: 74px; 
+			max-width: 200px;
+    		margin-top: 13px;
+	    }		
+
+	}
+
+	.navbar-default .navbar-nav > li > a {
+		font-size: 13px;
+		padding: 5px 8px;
+	}
+
+	li.icons-menu {display: none;}
+
+	section.slider {
+		.box-slide {
+			margin-top: -50px !important;
+			h4 {margin-top: -50px;}
+			h2 {margin-top: -30px;}
+		}		
+	}	
+
+	section.sobre {
+		.fotoFotografo {margin-top: 50px;}
+		.textSobre {text-align: center;}
+	}
+
+	#contato form input {margin-bottom: 10px;}	
+
+}
+
+
+/***********************
+	TABLETS
+************************/
+@media (max-width: 767px){
+
+	.navbar-nav{
+		text-align: center;
+		li { float: none; display: inline; }
+		.icons-menu {display: none;}
+	}	
+	.navbar-default .navbar-nav > li > a {
+		font-size: 21px;
+		padding: 15px 15px;
+		line-height: 1;
+	}
+	.navbar-brand {
+		margin-top: 5px;
+		margin-left: 15px;
+	    img { 
+	    	max-height: 74px; 
+	    	max-width: 220px;
+    		margin-top: 0;
+	    }
+	}	
+
+	.navbar-toggle {margin: 25px;}	/* IMPORTANTE PARA AUMENTAR A ALTURA DA NAVBAR */
+    .foto-insta {width: 50%;}
+
+	section.slider {
+		margin: 85px 0 0;
+		.box-slide {
+			margin-top: -40px !important;
+			h4 {margin-top: -40px; font-size:12px;}
+			h2 {margin-top: -25px; font-size:28px;}
+		}
+	}
+
+	#menu-social-links {margin: 0!important;}
+	#menu-social-links li {margin: 0 0 10px; display: block; font-size: 16px;}
+
+	.footer-widget {margin-bottom: 50px;}
+
+	#filters  { 
+		display: block;
+		li span{
+			display: block; width: 300px;
+		}
+	}
+
+}
+
+/***********************
+	MOBILE PHONE
+************************/
+@media (max-width: 480px){
+
+	.capaPortfolio {display: block; max-width: 100%; height: auto;}
+    .foto-insta {width: 100%;}
+	.navbar-toggle {border: 1px solid transparent;position: relative;}
+
+	section.slider {
+		.box-slide {margin-top: -50px !important;}		
+	}	
+
+	#menu-social-links li {margin: 0 0 10px; }
+
+}

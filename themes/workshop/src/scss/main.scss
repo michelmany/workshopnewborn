@@ -1,0 +1,15 @@
+@import "mixins";
+
+//GLOBAL AND PARTIALS
+@import "global"; 
+@import "header"; 
+@import "footer"; 
+
+//PAGES
+@import "home"; 
+@import "sobre"; 
+@import "portfolio"; 
+@import "contato"; 
+
+//MEDIA QUERY
+@import "responsive";
