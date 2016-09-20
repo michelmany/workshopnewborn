@@ -4,11 +4,6 @@
 
 @media (max-width: 1999px){
 
-	.navbar-brand {
-		margin-top: 15px;
-	    img { max-height:100px; max-width: 270px;}
-	}
-
 	.navbar-default .navbar-nav > li > a { font-size: 14px; }
 
 	section.slider {
@@ -27,13 +22,17 @@
 ************************/
 @media (max-width: 991px){
 
+	.navbar-default .navbar-toggle .icon-bar {
+	    background-color: #fff;
+	}	
+
 
 	.navbar-brand {
 		margin-top: 5px;
 	    img { 
-	    	max-height: 74px; 
-			max-width: 200px;
-    		margin-top: 13px;
+			max-height: 130px;
+		    max-width: 200px;
+		    margin-top: 0px;
 	    }		
 
 	}
@@ -73,6 +72,23 @@
 		li { float: none; display: inline; }
 		.icons-menu {display: none;}
 	}	
+	.navbar {
+		background-color: $primary-color;
+		border: 0;
+	    margin-bottom: 0;
+	}	
+
+	.navbar-collapse {
+	    opacity: 0.96;
+	}
+	.navbar-default {
+	    top: 0;
+	    border-width: 0 0 1px;		
+	    position: fixed;
+	    right: 0;
+	    left: 0;
+	    z-index: 1030;		
+	}
 	.navbar-default .navbar-nav > li > a {
 		font-size: 21px;
 		padding: 15px 15px;

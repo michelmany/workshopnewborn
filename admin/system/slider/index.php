@@ -99,7 +99,10 @@ endif;
 											<div class="mask">
 												<p><?php echo $slider_title2; ?></p>
 												<a class="btn btn-orange" href="painel.php?exe=slider/update&sliderid=<?= $slider_id; ?>" title="Editar"><i class="fa-wrench"></i></a>
-												<a class="btn btn-purple" href="painel.php?exe=slider/crop&sliderid=<?= $slider_id; ?>" title="Recortar Imagem"><i class="fa-scissors"></i></a> 						
+												<?php /* removi botao de crop
+												<a class="btn btn-purple" href="painel.php?exe=slider/crop&sliderid=<?= $slider_id; ?>" title="Recortar Imagem"><i class="fa-scissors"></i></a> 		
+												*/			
+												?>	
 												<a class="btn btn-danger" onclick="confirm_modal_del_slide('painel.php?exe=slider/index&slider=<?= $slider_id; ?>&action=delete', '<?php echo $slider_title2; ?>');" title="Excluir"><i class="fa-remove"></i></a>
 											</div>	
 										</li>	

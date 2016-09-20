@@ -23,9 +23,10 @@ if it's not present, don't show loader */
 //MENU
 
 .navbar {
-	background-color: $primary-color;
+	background-color: transparent;
 	border: 0;
     margin-bottom: 0;
+    z-index: 999;
 }
 
 .navbar-nav {
@@ -39,8 +40,8 @@ if it's not present, don't show loader */
 .navbar-brand {
 	padding: 0!important;
     img { 
-	    max-height: 90px;
-	    max-width: 324px;
+	    max-width: 143px;
+	    padding: 10px 0;
 	    @media screen and (min-width: 1200px) {
 	    	
 	    }

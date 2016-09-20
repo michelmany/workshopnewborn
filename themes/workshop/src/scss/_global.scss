@@ -7,8 +7,8 @@ $primary-font: 'Varela', sans-serif;
 $secondary-font: 'Varela', sans-serif;
 $headline-font: 'Architects Daughter', sans-serif;
 
-$primary-color: #fca9aa;
-$secondary-color: #b3797a;
+$primary-color: #b3797a;
+$secondary-color: #D2D7D6;
 $text-color: #b5b5b5;
 $white: #fff;
 $off-white: #eeeef2;
@@ -63,6 +63,8 @@ GLOBAL
 html {
     position: relative;
     min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; } 
 }
 
 body {
@@ -255,7 +257,7 @@ PÁGINAS
 
     &.traco-menor { 
         width: 40px; 
-        background-color: $secondary-color;
+        background-color: $primary-color;
     }
 }  
 

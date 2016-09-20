@@ -10,15 +10,15 @@ endif;
 <div class="page-title">
 
 	<div class="title-env">
-		<h1 class="title">Workshops</h1>
-		<p class="description">Gerencie seus workshops</p>
+		<h1 class="title">Cursos</h1>
+		<p class="description">Gerencie seus cursos</p>
 	</div>
 
 	<div class="breadcrumb-env">
 		<ol class="breadcrumb bc-1" >
 			<li><a href="painel.php"><i class="fa-home"></i>Home</a></li>
-			<li><a href="painel.php?exe=depoimentos/index">Workshops</a></li>
-			<li class="active"><strong>Cadastrar workshop</strong></li>
+			<li><a href="painel.php?exe=depoimentos/index">cursos</a></li>
+			<li class="active"><strong>Cadastrar curso</strong></li>
 		</ol>
 	</div>
 	
@@ -29,7 +29,7 @@ endif;
 		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Cadastrar workshop</h3>
+					<h3 class="panel-title">Cadastrar curso</h3>
 					<div class="panel-options">
 							<a href="#" data-toggle="panel">
 								<span class="collapse-icon">&ndash;</span>
@@ -84,7 +84,7 @@ endif;
 
 						<!-- Data -->
 						<div class="form-group"> 
-							<label class="col-sm-3 control-label">Data do workshop</label>
+							<label class="col-sm-3 control-label">Data do curso</label>
 							<div class="col-sm-9"> 
 								<div class="input-group"> 
 									<div class="input-group-addon"> 

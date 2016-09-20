@@ -156,10 +156,10 @@ endif;
 					<div class="form-group-separator"></div>	
 
 					<div class="form-group"> 
-						<label class="col-sm-3 control-label" for="field-1">Digite seu nome</label> 
+						<label class="col-sm-3 control-label" for="field-1">Título página sobre</label> 
 						<div class="col-sm-9">
 							<input type="text" class="form-control" placeholder="" name="user_name" value="<?php if(isset($user_name)) echo $user_name; ?>"> 
-							<p class="help-block">Este nome aparecerá no site na página Sobre</p>
+							<p class="help-block">Este título aparecerá na página Sobre</p>
 						</div>
 					</div>	
 

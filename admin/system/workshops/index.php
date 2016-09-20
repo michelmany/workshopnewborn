@@ -9,20 +9,20 @@ endif;
 <!-- Cabeçalho -->
 <div class="page-title">
 	<div class="title-env">
-		<h1 class="title">Workshops</h1>
-		<p class="description">Gerencie seus workshops</p>
+		<h1 class="title">Cursos</h1>
+		<p class="description">Gerencie seus cursos</p>
 	</div>
 	<div class="breadcrumb-env">
 		<ol class="breadcrumb bc-1" >
 			<li><a href="painel.php"><i class="fa-home"></i>Home</a></li>
-			<li class="active">Workshops</li>
+			<li class="active">Cursos</li>
 		</ol>
 	</div>
 </div>
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<a href="painel.php?exe=workshops/create" class="btn btn-turquoise btn-lg"><i class="fa-plus-square"></i> Novo Workshop</a>
+		<a href="painel.php?exe=workshops/create" class="btn btn-turquoise btn-lg"><i class="fa-plus-square"></i> Novo Curso</a>
 	</div>
 	<div class="panel-body">
 
@@ -54,7 +54,7 @@ endif;
 		$read->ExeRead("nit_workshops", "ORDER BY workshop_date DESC");
 		if (!$read->getResult()):
 			#Se não encontrar resultados no banco mostra mensagem. Se encontrar, mostra a tabela.
-			WSErro("Olá, você ainda não cadastrou nenhum workshop no sistema! ", WS_INFOR);
+			WSErro("Olá, você ainda não cadastrou nenhum curso no sistema! ", WS_INFOR);
 		else: ?>	
 			<div class="table-responsive" data-pattern="priority-columns">
 				<table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">

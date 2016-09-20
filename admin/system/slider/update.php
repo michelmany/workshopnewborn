@@ -101,7 +101,7 @@ endif;
 							<label class="col-sm-2 control-label" for="field-1">Título 1</label>
 
 							<div class="col-sm-10">
-								<input type="text" name="slider_title1" value="<?php if (isset($slider['slider_title2'])) echo $slider['slider_title1']; ?>" class="form-control" placeholder="Tipo de trabalho" required>
+								<input type="text" name="slider_title1" value="<?php if (isset($slider['slider_title2'])) echo $slider['slider_title1']; ?>" class="form-control" placeholder="Tipo de trabalho">
 								<p class="help-block with-errors">Ex.: Casamento</p>
 							</div>
 						</div>
@@ -112,7 +112,7 @@ endif;
 							<label class="col-sm-2 control-label" for="field-1">Título 2</label>
 
 							<div class="col-sm-10">
-								<input type="text" name="slider_title2" value="<?php if (isset($slider['slider_title2'])) echo $slider['slider_title2']; ?>" class="form-control" placeholder="Nome dos noivos ou do ensaio" required>
+								<input type="text" name="slider_title2" value="<?php if (isset($slider['slider_title2'])) echo $slider['slider_title2']; ?>" class="form-control" placeholder="Nome dos noivos ou do ensaio">
 								<p class="help-block with-errors">Ex.: Romeu & Julieta</p>
 							</div>
 						</div>
@@ -123,7 +123,7 @@ endif;
 							<label class="col-sm-2 control-label" for="field-1">Título 3</label>
 
 							<div class="col-sm-10">
-								<input type="text" name="slider_title3" value="<?php if (isset($slider['slider_title3'])) echo $slider['slider_title3']; ?>" class="form-control" id="field-1" placeholder="Local onde foi realizado" required>
+								<input type="text" name="slider_title3" value="<?php if (isset($slider['slider_title3'])) echo $slider['slider_title3']; ?>" class="form-control" id="field-1" placeholder="Local onde foi realizado">
 								<p class="help-block with-errors">Ex.: Niterói/RJ</p>
 							</div>
 						</div>

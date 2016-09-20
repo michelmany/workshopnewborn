@@ -1,6 +1,6 @@
 <section id="portfolio" class="content">
     <div class="title-section internas text-center">
-        <h3 class="title">Trabalhos</h3>
+        <h3 class="title">Galerias</h3>
         <div class="tracinho"></div>
     </div>
     <div class="portfolioPage">

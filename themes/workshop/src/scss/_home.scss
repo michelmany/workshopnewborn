@@ -4,10 +4,11 @@
 #page-top {padding-top: 0.1px;} // HACK PARA FUNCIONAR O PAGE-TOP HOME (SCROLL)
 
 section.slider {
-	margin: 0 0 0;
+	margin: -125px 0 0;
 	position: relative;
 	text-align: center;
 	width: 100%;
+
 
 	.bg-slide-black { background:rgba(0,0,0,0.4) }	
 	
@@ -98,7 +99,7 @@ section.sobre {
 
 	//WORKSHOPS
 	&.section-workshops {
-		background-color: #BED8C9; 
+		background-color: #bddcd9; 
 		.title-section {
 			.title { color: $white;	}
 			.tracinho {	background-color: $white; }
@@ -160,7 +161,15 @@ section.sobre {
 			text-align: center;
 			clear: both;
 		}
-	}	
+	}
+
+	&.section-videos {
+		background-color: #737592;
+		.title-section {
+			.title { color: $white;	}
+			.tracinho {	background-color: $white; }
+		}		
+	}
 
 
 }

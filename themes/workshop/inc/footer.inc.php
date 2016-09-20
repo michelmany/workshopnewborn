@@ -70,21 +70,30 @@
             </div>
             <div class="col-md-4">
                 <div class="footer-widget">
-                    <h5 class="title-widget">Mais visualizados</h5>
+                    <h5 class="title-widget">Parceiros</h5>
                     <div class="tracinho traco-menor"></div>
                     <div class="content-widget">
-                <?php 
-                    $post = new Read;
-                    $post->ExeRead("nit_albuns", "WHERE album_status = 1 ORDER BY album_views DESC LIMIT :limit", "limit=2");
-                    if(!$post->getResult()):
-                        WSErro('Nenhum álbum cadastrado!', WS_INFOR);
-                    else:
-                        foreach ($post->getResult() as $album):
-                            extract($album);
-                            echo '<a href="'.HOME.'/portfolio/'.$album_url.'"><img class="imgFooterMaisVistos" src="'.BASE.'/tim.php?src=uploads/'.$album_capa.'&w=160&h=155&q=90" title="'.$album_nome.'"></a>';
-                        endforeach;
-                    endif;
-                 ?>
+                         <div class="carousel-parceiros">
+                        <?php 
+                            $post = new Read;
+                            $post->ExeRead("nit_parceiros", "WHERE slider_status = 1 ORDER BY slider_order DESC");
+                            if(!$post->getResult()):
+                                WSErro('Nenhuma Logo cadastrada!', WS_INFOR);
+                            else:
+                                foreach ($post->getResult() as $slider):
+                                    extract($slider);
+
+                                    if (!empty($slider_link)):
+                                        echo '<div class="item"><a href="http://'.$slider_link.'" target="_blank"><img class="img-responsive" src="'.BASE.'/tim.php?src=uploads/'.$slider_url_img.'&w=151&h=95&q=90" title="'.$slider_title1.'"></a></div>';
+                                    else:
+                                        echo '<div class="item"><img class="img-responsive" src="'.BASE.'/tim.php?src=uploads/'.$slider_url_img.'&w=151&h=95&q=90" title="'.$slider_title1.'"></div>';                                                                     
+                                    endif;
+
+                                endforeach;
+                            endif; 
+                         ?>
+                     
+                 </div>
                     </div>              
                 </div>
             </div>

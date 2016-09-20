@@ -47,7 +47,6 @@ if (!empty($data[1])) {
                 <ul class="nav navbar-nav navbar-right">
                     <?php if( isset($pagina) && ($pagina == 'portfolios' || $pagina == 'portfolio' || $pagina == 'posts' || $pagina == 'post')): ?>
                         <li><a href="<?= HOME ?>/portfolios/" class="page-scroll">Trabalhos</a></li>
-                        <li><a href="<?= HOME ?>/posts/" class="page-scroll">Blog</a></li>
                         <li><a href="javascript:window.history.go(-1)">Voltar</a></li>
                         <li class="icons-menu"><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li class="icons-menu"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -56,9 +55,10 @@ if (!empty($data[1])) {
                     <?php else: ?>
                         <li><a href="<?= HOME ?>">Home</a></li>
                         <li><a href="#sobre" class="page-scroll">Sobre</a></li>
-                        <li><a href="#workshops" class="page-scroll">Workshops</a></li>
-                        <li><a href="#lastjobs" class="page-scroll">Trabalhos</a></li>
-                        <li><a href="#blog" class="page-scroll">Blog</a></li>
+                        <li><a href="#workshops" class="page-scroll">Cursos</a></li>
+                        <li><a href="#lastjobs" class="page-scroll">Galeria</a></li>
+                        <li><a href="#videos" class="page-scroll">Videos</a></li>
+                        <li><a href="#depoimentos" class="page-scroll">Depoimentos</a></li>
                         <li><a href="#contato" class="page-scroll">Contato</a></li>
                         <?php include('social-icons.inc.php'); ?>
                     <?php endif; ?>

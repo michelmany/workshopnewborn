@@ -196,11 +196,11 @@ endif;
 					</div>
 		
 					<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
-					<div class="settings-icon">
+<!-- 					<div class="settings-icon">
 						<a href="#" data-toggle="settings-pane" data-animate="true">
 							<i class="linecons-cog"></i>
 						</a>
-					</div>
+					</div> -->
 		
 					
 				</header>
@@ -230,30 +230,9 @@ endif;
 							<i class="linecons-note"></i>
 							<span class="title">Slider</span>
 						</a>
-					</li>	
-					<li class="<?php if (in_array('albuns', $linkto)) echo 'active opened'; ?> auto-inherit-active-class">
-						<a href="">
-							<i class="fa-folder-open-o"></i>
-							<span class="title">Álbuns</span>
-						</a>
-						<ul>
-							<li>
-								<a href="painel.php?exe=albuns/categorias">
-									<span class="title">Categorias</span>
-								</a>
-							</li>
-							<li>
-								<a href="painel.php?exe=albuns/create">
-									<span class="title">Adicionar álbuns</span>
-								</a>
-							</li>
-							<li>
-								<a href="painel.php?exe=albuns/index">
-									<span class="title">Listar álbuns</span>
-								</a>
-							</li>
-						</ul>
-					</li>
+					</li>				
+					<?php 
+					/* BLOG POSTS QUANDO NECESSARIO.
 					<li class="<?php if (in_array('posts', $linkto)) echo 'active opened'; ?> auto-inherit-active-class">
 						<a href="">
 							<i class="fa-folder-open-o"></i>
@@ -276,11 +255,12 @@ endif;
 								</a>
 							</li>
 						</ul>
-					</li>
+					</li> 
+					*/ ?>
 					<li class="<?php if (in_array('workshops', $linkto)) echo 'active opened'; ?> auto-inherit-active-class">
 						<a href="">
 							<i class="fa-folder-open-o"></i>
-							<span class="title">Workshops</span>
+							<span class="title">Cursos</span>
 						</a>
 						<ul>
 							<li>
@@ -290,7 +270,7 @@ endif;
 							</li>
 							<li>
 								<a href="painel.php?exe=workshops/index">
-									<span class="title">Listar Workshops</span>
+									<span class="title">Listar Cursos</span>
 								</a>
 							</li>
 							<li>
@@ -299,13 +279,48 @@ endif;
 								</a>
 							</li>
 						</ul>
-					</li>															
+					</li>
+					<li class="<?php if (in_array('albuns', $linkto)) echo 'active opened'; ?> auto-inherit-active-class">
+						<a href="">
+							<i class="fa-folder-open-o"></i>
+							<span class="title">Galeria</span>
+						</a>
+						<ul>
+							<li>
+								<a href="painel.php?exe=albuns/categorias">
+									<span class="title">Categorias</span>
+								</a>
+							</li>
+							<li>
+								<a href="painel.php?exe=albuns/create">
+									<span class="title">Adicionar galeria</span>
+								</a>
+							</li>
+							<li>
+								<a href="painel.php?exe=albuns/index">
+									<span class="title">Listar galerias</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php if (in_array('videos', $linkto)) echo 'active'; ?>">
+						<a href="painel.php?exe=videos/index">
+							<i class="linecons-note"></i>
+							<span class="title">Videos</span>
+						</a>
+					</li>									
 					<li class="<?php if (in_array('depoimentos', $linkto)) echo ' active'; ?>">
 						<a href="painel.php?exe=depoimentos/index">
 							<i class="linecons-comment"></i>
 							<span class="title">Depoimentos</span>
 						</a>
 					</li>
+					<li class="<?php if (in_array('parceiros', $linkto)) echo 'active'; ?>">
+						<a href="painel.php?exe=parceiros/index">
+							<i class="linecons-note"></i>
+							<span class="title">Parceiros</span>
+						</a>
+					</li>						
 					<li>
 						<a href="painel.php?exe=config/index">
 							<i class="linecons-params"></i>
