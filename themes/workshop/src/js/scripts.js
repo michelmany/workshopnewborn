@@ -3,41 +3,6 @@ $(window).load(function () {
 	$(".loader").fadeOut("slow");
 });
 
-//SLIDE DA HOME (DEVRAMA SLIDER)  
-$(document).ready(function () {
-    $('#my-slide').DrSlider({
-		width: 1024*4,
-		height: 400*4,
-		userCSS: true,
-		transitionSpeed: 1000,
-		duration: 4000,
-		showNavigation: false,
-		classNavigation: undefined,
-		showControl: true,
-		classButtonNext: undefined,
-		classButtonPrevious: undefined,
-		positionControl: 'left-right',
-		transition: 'fade',
-		showProgress: true,
-		pauseOnHover: true,
-		onReady: undefined
-    });
-});
-
-//Carrega o OWN SLIDE (Carrousel) - lastjobs
-$(document).ready(function() {
- 
-  $("#owl-lastJobs").owlCarousel({
-    autoPlay: 3000, //Set AutoPlay to 3 seconds
-    items : 4,
-    itemsDesktop : [1199,4],
-    itemsDesktopSmall : [979,4],
-    itemsTablet: [768, 2],
-    pagination: true
- 
-  });
- 
-});
 
 //Carrega o OWN SLIDE (Carrousel) - lastjobs
 $(document).ready(function() {
@@ -101,7 +66,7 @@ $(function () {
     init: function () {
     
       // MixItUp plugin
-      // http://mixitup.io
+      // http://mixitup-old.kunkalabs.com/
       $('#portfoliolist').mixitup({
         targetSelector: '.portfolio',
         filterSelector: '.filter',
@@ -119,11 +84,11 @@ $(function () {
       $('.portfolio').hover(
         function () {
           $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-          $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');       
+          // $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');       
         },
         function () {
           $(this).find('.label').stop().animate({bottom: -100}, 200, 'easeInQuad');
-          $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');               
+          // $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');               
         }   
       );        
     
@@ -239,605 +204,401 @@ $('.j_formsubmit').submit(function () {
     });
 
 
-/* REMOVER E COLOR NA PASTA PLUGINS*/
-/*! Lity - v2.1.0 - 2016-09-19
-* http://sorgalla.com/lity/
-* Copyright (c) 2015-2016 Jan Sorgalla; Licensed MIT */
-(function(window, factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery'], function($) {
-            return factory(window, $);
-        });
-    } else if (typeof module === 'object' && typeof module.exports === 'object') {
-        module.exports = factory(window, require('jquery'));
-    } else {
-        window.lity = factory(window, window.jQuery || window.Zepto);
-    }
-}(typeof window !== "undefined" ? window : this, function(window, $) {
-    'use strict';
+//Drew configs
+;(function( $ ) {
+    "use strict";
 
-    var document = window.document;
+    $( document ).on( 'ready', function() {
 
-    var _win = $(window);
-    var _deferred = $.Deferred;
-    var _html = $('html');
-    var _instances = [];
+        var $window = $( window ),
+            $body = $( 'body' ),
+            $document = $( document ),
+            drew = {
+                headerFloatingHeight : 60,
+            };
 
-    var _attrAriaHidden = 'aria-hidden';
-    var _dataAriaHidden = 'lity-' + _attrAriaHidden;
-
-    var _focusableElementsSelector = 'a[href],area[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),button:not([disabled]),iframe,object,embed,[contenteditable],[tabindex]:not([tabindex^="-"])';
-
-    var _defaultOptions = {
-        handler: null,
-        handlers: {
-            image: imageHandler,
-            inline: inlineHandler,
-            youtube: youtubeHandler,
-            vimeo: vimeoHandler,
-            googlemaps: googlemapsHandler,
-            iframe: iframeHandler
-        },
-        template: '<div class="lity" role="dialog" aria-label="Dialog Window (Press escape to close)" tabindex="-1"><div class="lity-wrap" data-lity-close role="document"><div class="lity-loader" aria-hidden="true">Loading...</div><div class="lity-container"><div class="lity-content"></div><button class="lity-close" type="button" aria-label="Close (Press escape to close)" data-lity-close>&times;</button></div></div></div>'
-    };
-
-    var _imageRegexp = /(^data:image\/)|(\.(png|jpe?g|gif|svg|webp|bmp|ico|tiff?)(\?\S*)?$)/i;
-    var _youtubeRegex = /(youtube(-nocookie)?\.com|youtu\.be)\/(watch\?v=|v\/|u\/|embed\/?)?([\w-]{11})(.*)?/i;
-    var _vimeoRegex =  /(vimeo(pro)?.com)\/(?:[^\d]+)?(\d+)\??(.*)?$/;
-    var _googlemapsRegex = /((maps|www)\.)?google\.([^\/\?]+)\/?((maps\/?)?\?)(.*)/i;
-
-    var _transitionEndEvent = (function() {
-        var el = document.createElement('div');
-
-        var transEndEventNames = {
-            WebkitTransition: 'webkitTransitionEnd',
-            MozTransition: 'transitionend',
-            OTransition: 'oTransitionEnd otransitionend',
-            transition: 'transitionend'
+        /**
+         * =======================================
+         * Function: Detect Mobile Device
+         * =======================================
+         */
+        // source: http://www.abeautifulsite.net/detecting-mobile-devices-with-javascript/
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match( /Android/i );
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match( /BlackBerry/i );
+            },
+            iOS: function() {
+                return navigator.userAgent.match( /iPhone|iPad|iPod/i );
+            },
+            Opera: function() {
+                return navigator.userAgent.match( /Opera Mini/i );
+            },
+            Windows: function() {
+                return navigator.userAgent.match( /IEMobile/i );
+            },
+            any: function() {
+                return ( isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() );
+            },
         };
 
-        for (var name in transEndEventNames) {
-            if (el.style[name] !== undefined) {
-                return transEndEventNames[name];
-            }
-        }
-
-        return false;
-    })();
-
-    function transitionEnd(element) {
-        var deferred = _deferred();
-
-        if (!_transitionEndEvent || !element.length) {
-            deferred.resolve();
-        } else {
-            element.one(_transitionEndEvent, deferred.resolve);
-            setTimeout(deferred.resolve, 500);
-        }
-
-        return deferred.promise();
-    }
-
-    function settings(currSettings, key, value) {
-        if (arguments.length === 1) {
-            return $.extend({}, currSettings);
-        }
-
-        if (typeof key === 'string') {
-            if (typeof value === 'undefined') {
-                return typeof currSettings[key] === 'undefined'
-                    ? null
-                    : currSettings[key];
-            }
-
-            currSettings[key] = value;
-        } else {
-            $.extend(currSettings, key);
-        }
-
-        return this;
-    }
-
-    function parseQueryParams(params) {
-        var pairs = decodeURI(params.split('#')[0]).split('&');
-        var obj = {}, p;
-
-        for (var i = 0, n = pairs.length; i < n; i++) {
-            if (!pairs[i]) {
-                continue;
-            }
-
-            p = pairs[i].split('=');
-            obj[p[0]] = p[1];
-        }
-
-        return obj;
-    }
-
-    function appendQueryParams(url, params) {
-        return url + (url.indexOf('?') > -1 ? '&' : '?') + $.param(params);
-    }
-
-    function transferHash(originalUrl, newUrl) {
-        var pos = originalUrl.indexOf('#');
-
-        if (-1 === pos) {
-            return newUrl;
-        }
-
-        if (pos > 0) {
-            originalUrl = originalUrl.substr(pos);
-        }
-
-        return newUrl + originalUrl;
-    }
-
-    function error(msg) {
-        return $('<span class="lity-error"/>').append(msg);
-    }
-
-    function imageHandler(target, instance) {
-        var desc = (instance.opener() && instance.opener().data('lity-desc')) || 'Image with no description';
-        var img = $('<img src="' + target + '" alt="' + desc + '"/>');
-        var deferred = _deferred();
-        var failed = function() {
-            deferred.reject(error('Failed loading image'));
-        };
-
-        img
-            .on('load', function() {
-                if (this.naturalWidth === 0) {
-                    return failed();
-                }
-
-                deferred.resolve(img);
-            })
-            .on('error', failed)
-        ;
-
-        return deferred.promise();
-    }
-
-    imageHandler.test = function(target) {
-        return _imageRegexp.test(target);
-    };
-
-    function inlineHandler(target, instance) {
-        var el, placeholder, hasHideClass;
-
-        try {
-            el = $(target);
-        } catch (e) {
-            return false;
-        }
-
-        if (!el.length) {
-            return false;
-        }
-
-        placeholder = $('<i style="display:none !important"/>');
-        hasHideClass = el.hasClass('lity-hide');
-
-        instance
-            .element()
-            .one('lity:remove', function() {
-                placeholder
-                    .before(el)
-                    .remove()
-                ;
-
-                if (hasHideClass && !el.closest('.lity-content').length) {
-                    el.addClass('lity-hide');
-                }
-            })
-        ;
-
-        return el
-            .removeClass('lity-hide')
-            .after(placeholder)
-        ;
-    }
-
-    function youtubeHandler(target) {
-        var matches = _youtubeRegex.exec(target);
-
-        if (!matches) {
-            return false;
-        }
-
-        return iframeHandler(
-            transferHash(
-                target,
-                appendQueryParams(
-                    'https://www.youtube' + (matches[2] || '') + '.com/embed/' + matches[4],
-                    $.extend(
-                        {
-                            autoplay: 1
-                        },
-                        parseQueryParams(matches[5] || '')
-                    )
-                )
-            )
-        );
-    }
-
-    function vimeoHandler(target) {
-        var matches = _vimeoRegex.exec(target);
-
-        if (!matches) {
-            return false;
-        }
-
-        return iframeHandler(
-            transferHash(
-                target,
-                appendQueryParams(
-                    'https://player.vimeo.com/video/' + matches[3],
-                    $.extend(
-                        {
-                            autoplay: 1
-                        },
-                        parseQueryParams(matches[4] || '')
-                    )
-                )
-            )
-        );
-    }
-
-    function googlemapsHandler(target) {
-        var matches = _googlemapsRegex.exec(target);
-
-        if (!matches) {
-            return false;
-        }
-
-        return iframeHandler(
-            transferHash(
-                target,
-                appendQueryParams(
-                    'https://www.google.' + matches[3] + '/maps?' + matches[6],
-                    {
-                        output: matches[6].indexOf('layer=c') > 0 ? 'svembed' : 'embed'
-                    }
-                )
-            )
-        );
-    }
-
-    function iframeHandler(target) {
-        return '<div class="lity-iframe-container"><iframe frameborder="0" allowfullscreen src="' + target + '"/></div>';
-    }
-
-    function winHeight() {
-        return document.documentElement.clientHeight
-            ? document.documentElement.clientHeight
-            : Math.round(_win.height());
-    }
-
-    function keydown(e) {
-        var current = currentInstance();
-
-        if (!current) {
-            return;
-        }
-
-        // ESC key
-        if (e.keyCode === 27) {
-            current.close();
-        }
-
-        // TAB key
-        if (e.keyCode === 9) {
-            handleTabKey(e, current);
-        }
-    }
-
-    function handleTabKey(e, instance) {
-        var focusableElements = instance.element().find(_focusableElementsSelector);
-        var focusedIndex = focusableElements.index(document.activeElement);
-
-        if (e.shiftKey && focusedIndex <= 0) {
-            focusableElements.get(focusableElements.length - 1).focus();
-            e.preventDefault();
-        } else if (!e.shiftKey && focusedIndex === focusableElements.length - 1) {
-            focusableElements.get(0).focus();
-            e.preventDefault();
-        }
-    }
-
-    function resize() {
-        $.each(_instances, function(i, instance) {
-            instance.resize();
-        });
-    }
-
-    function registerInstance(instanceToRegister) {
-        if (1 === _instances.unshift(instanceToRegister)) {
-            _html.addClass('lity-active');
-
-            _win
-                .on({
-                    resize: resize,
-                    keydown: keydown
-                })
-            ;
-        }
-
-        $('body > *').not(instanceToRegister.element())
-            .addClass('lity-hidden')
-            .each(function() {
-                var el = $(this);
-
-                if (undefined !== el.data(_dataAriaHidden)) {
-                    return;
-                }
-
-                el.data(_dataAriaHidden, el.attr(_attrAriaHidden) || null);
-            })
-            .attr(_attrAriaHidden, 'true')
-        ;
-    }
-
-    function removeInstance(instanceToRemove) {
-        var show;
-
-        instanceToRemove
-            .element()
-            .attr(_attrAriaHidden, 'true')
-        ;
-
-        if (1 === _instances.length) {
-            _html.removeClass('lity-active');
-
-            _win
-                .off({
-                    resize: resize,
-                    keydown: keydown
-                })
-            ;
-        }
-
-        _instances = $.grep(_instances, function(instance) {
-            return instanceToRemove !== instance;
-        });
-
-        if (!!_instances.length) {
-            show = _instances[0].element();
-        } else {
-            show = $('.lity-hidden');
-        }
-
-        show
-            .removeClass('lity-hidden')
-            .each(function() {
-                var el = $(this), oldAttr = el.data(_dataAriaHidden);
-
-                if (!oldAttr) {
-                    el.removeAttr(_attrAriaHidden);
-                } else {
-                    el.attr(_attrAriaHidden, oldAttr);
-                }
-
-                el.removeData(_dataAriaHidden);
-            })
-        ;
-    }
-
-    function currentInstance() {
-        if (0 === _instances.length) {
-            return null;
-        }
-
-        return _instances[0];
-    }
-
-    function factory(target, instance, handlers, preferredHandler) {
-        var handler = 'inline', content;
-
-        var currentHandlers = $.extend({}, handlers);
-
-        if (preferredHandler && currentHandlers[preferredHandler]) {
-            content = currentHandlers[preferredHandler](target, instance);
-            handler = preferredHandler;
-        } else {
-            // Run inline and iframe handlers after all other handlers
-            $.each(['inline', 'iframe'], function(i, name) {
-                delete currentHandlers[name];
-
-                currentHandlers[name] = handlers[name];
+        /**
+         * =======================================
+         * Function: Resize Background
+         * =======================================
+         */
+        var resizeBackground = function() {
+
+            $( '.section-background-video > video, .section-background-image > img, .two-cols-description-image > img' ).each(function( i, el ) {
+
+                var $el       = $( el ),
+                    $section  = $el.parent(),
+                    min_w     = 300,
+                    el_w      = el.tagName == 'VIDEO' ? el.videoWidth : el.naturalWidth,
+                    el_h      = el.tagName == 'VIDEO' ? el.videoHeight : el.naturalHeight,
+                    section_w = $section.outerWidth(),
+                    section_h = $section.outerHeight(),
+                    scale_w   = section_w / el_w,
+                    scale_h   = section_h / el_h,
+                    scale     = scale_w > scale_h ? scale_w : scale_h,
+                    new_el_w, new_el_h, offet_top, offet_left;
+
+                if ( scale * el_w < min_w ) {
+                    scale = min_w / el_w;
+                };
+
+                new_el_w = scale * el_w;
+                new_el_h = scale * el_h;
+                offet_left = ( new_el_w - section_w ) / 2 * -1;
+                offet_top  = ( new_el_h - section_h ) / 2 * -1;
+
+                $el.css( 'width', new_el_w );
+                $el.css( 'height', new_el_h );
+                $el.css( 'marginTop', offet_top );
+                $el.css( 'marginLeft', offet_left );
             });
 
-            $.each(currentHandlers, function(name, currentHandler) {
-                // Handler might be "removed" by setting callback to null
-                if (!currentHandler) {
-                    return true;
-                }
+        };
+        $body.on( 'pageStart', function() {
+            resizeBackground();
+        });
 
-                if (
-                    currentHandler.test &&
-                    !currentHandler.test(target, instance)
-                ) {
-                    return true;
-                }
-
-                content = currentHandler(target, instance);
-
-                if (false !== content) {
-                    handler = name;
-                    return false;
-                }
+        /**
+         * =======================================
+         * IE9 Placeholder
+         * =======================================
+         */
+        $( 'form' ).on( 'submit', function() {
+            $( this ).find( '[placeholder]' ).each(function() {
+                var $input = $( this );
+                if ( $input.val() == $input.attr( 'placeholder' ) ) {
+                    $input.val( '' );
+                };
             });
-        }
+        });
 
-        return {handler: handler, content: content || ''};
-    }
+        $( '[placeholder]' ).on( 'focus', function() {
+            var $input = $( this );
+            if ( $input.val() == $input.attr( 'placeholder' ) ) {
+                $input.val( '' );
+                $input.removeClass( 'placeholder' );
+            };
+        }).on( 'blur', function() {
+            var $input = $( this );
+            if ( $input.val() == '' || $input.val() == $input.attr( 'placeholder' ) ) {
+                $input.addClass( 'placeholder' );
+                $input.val( $input.attr( 'placeholder' ) );
+            };
+        }).blur();
 
-    function Lity(target, options, opener, activeElement) {
-        var self = this;
-        var result;
-        var isReady = false;
-        var isClosed = false;
-        var element;
-        var content;
-
-        options = $.extend(
-            {},
-            _defaultOptions,
-            options
-        );
-
-        element = $(options.template);
-
-        // -- API --
-
-        self.element = function() {
-            return element;
+        /**
+         * =======================================
+         * Detect Mobile Device
+         * =======================================
+         */
+        if ( isMobile.any() ) {
+            // add identifier class to <body>
+            $body.addClass( 'mobile-device' );
+            // remove all element with class "remove-on-mobile-device"
+            $( '.remove-on-mobile-device' ).remove();
         };
 
-        self.opener = function() {
-            return opener;
+        /* =======================================
+         * Resize Video Background
+         * =======================================
+         */
+        $window.on( 'resize', function() {
+            resizeBackground();
+        });
+
+        /* =======================================
+         * Slideshow Background
+         * =======================================
+         */
+        if ( $.fn.responsiveSlides ) {
+            $body.on( 'pageStart', function() {
+                $( '.section-background-slideshow' ).responsiveSlides({
+                    speed : $( this ).data( 'speed' ) ? $( this ).data( 'speed' ) : 800,
+                    timeout : $( this ).data( 'timeout' ) ? $( this ).data( 'timeout' ) : 4000,
+                });
+            });
         };
 
-        self.options  = $.proxy(settings, self, options);
-        self.handlers = $.proxy(settings, self, options.handlers);
-
-        self.resize = function() {
-            if (!isReady || isClosed) {
-                return;
-            }
-
-            content
-                .css('max-height', winHeight() + 'px')
-                .trigger('lity:resize', [self])
-            ;
+        /* =======================================
+         * Testimonial Slider
+         * =======================================
+         */
+        if ( $.fn.responsiveSlides ) {
+            $body.on( 'pageStart', function() {
+                $( '.testimonial-slider' ).responsiveSlides({
+                    speed : $( this ).data( 'speed' ) ? $( this ).data( 'speed' ) : 800,
+                    timeout : $( this ).data( 'timeout' ) ? $( this ).data( 'timeout' ) : 4000,
+                    auto : $( this ).data( 'auto' ) ? $( this ).data( 'auto' ) : false,
+                    pager : true,
+                });
+            });
         };
 
-        self.close = function() {
-            if (!isReady || isClosed) {
-                return;
-            }
-
-            isClosed = true;
-
-            removeInstance(self);
-
-            var deferred = _deferred();
-
-            // We return focus only if the current focus is inside this instance
-            if (activeElement && $.contains(element, document.activeElement)) {
-                activeElement.focus();
-            }
-
-            content.trigger('lity:close', [self]);
-
-            element
-                .removeClass('lity-opened')
-                .addClass('lity-closed')
-            ;
-
-            transitionEnd(content.add(element))
-                .always(function() {
-                    content.trigger('lity:remove', [self]);
-                    element.remove();
-                    element = undefined;
-                    deferred.resolve();
-                })
-            ;
-
-            return deferred.promise();
+        /* =======================================
+         * Hero Slider
+         * =======================================
+         */
+        if ( $.fn.responsiveSlides ) {
+            $body.on( 'pageStart', function() {
+                $( '.section-slider' ).responsiveSlides({
+                    speed : $( this ).data( 'speed' ) ? $( this ).data( 'speed' ) : 800,
+                    timeout : $( this ).data( 'timeout' ) ? $( this ).data( 'timeout' ) : 4000,
+                    auto : $( this ).data( 'auto' ) ? $( this ).data( 'auto' ) : true,
+                    nav : true,
+                });
+            });
         };
 
-        // -- Initialization --
+        /* =======================================
+         * Video Embed Async Load
+         * =======================================
+         */
+        $body.on( 'pageStart', function() {
+            $( '.video-async' ).each( function( i, el ) {
+                var $el = $( el ),
+                    source = $el.data( 'source' ),
+                    video = $el.data( 'video' ),
+                    color = $el.data( 'color' );
 
-        result = factory(target, self, options.handlers, options.handler);
-
-        element
-            .attr(_attrAriaHidden, 'false')
-            .addClass('lity-loading lity-opened lity-' + result.handler)
-            .appendTo('body')
-            .focus()
-            .on('click', '[data-lity-close]', function(e) {
-                if ($(e.target).is('[data-lity-close]')) {
-                    self.close();
+                if ( source == 'vimeo' ) {
+                    $el.attr( 'src', '//player.vimeo.com/video/' + video + ( color ? '?color=' + color : '' ) );
+                } else if ( source == 'youtube' ) {
+                    $el.attr( 'src', '//www.youtube.com/embed/' + video + '?rel=0' );
                 }
-            })
-            .trigger('lity:open', [self])
-        ;
 
-        registerInstance(self);
+            });
+        });
+        
+        /**
+         * =======================================
+         * Initiate Stellar JS
+         * =======================================
+         */
+        if ( $.fn.stellar && ! isMobile.any() ) {
+            $.stellar({
+                responsive: true,
+                horizontalScrolling: false,
+                hideDistantElements: false,
+                verticalOffset: 0,
+                horizontalOffset: 0,
+            });
+        };
 
-        $.when(result.content)
-            .always(ready)
-        ;
+        /**
+         * =======================================
+         * Numbers (Counter Up)
+         * =======================================
+         */
+        if ( $.fn.counterUp ) {
+            $( '.counter-up' ).counterUp({
+                time: 1000,
+            });
+        };
 
-        function ready(result) {
-            content = $(result)
-                .css('max-height', winHeight() + 'px')
-            ;
+        /**
+         * =======================================
+         * Scroll Spy
+         * =======================================
+         */
+        var toggleHeaderFloating = function() {
+            // Floating Header
+            if ( $window.scrollTop() > 80 ) {
+                $( '.header-section' ).addClass( 'floating' );
+            } else {
+                $( '.header-section' ).removeClass( 'floating' );
+            };
+        };
 
-            element
-                .find('.lity-loader')
-                .each(function() {
-                    var loader = $(this);
+        $window.on( 'scroll', toggleHeaderFloating );
 
-                    transitionEnd(loader)
-                        .always(function() {
-                            loader.remove();
-                        })
-                    ;
-                })
-            ;
+        /**
+         * =======================================
+         * One Page Navigation
+         * =======================================
+         */
+        if ( $.fn.onePageNav ) {
+            $( '#header-nav' ).onePageNav({
+                scrollSpeed : 1000,
+                filter : ':not(.external)',
+                begin : function() {
+                    $( '#navigation' ).collapse( 'toggle' );
+                },
+            });
+        };
 
-            element
-                .removeClass('lity-loading')
-                .find('.lity-content')
-                .empty()
-                .append(content)
-            ;
+        /**
+         * =======================================
+         * Animations
+         * =======================================
+         */
+        if ( $body.hasClass( 'enable-animations' ) && ! isMobile.any() ) {
+            var $elements = $( '*[data-animation]' );
 
-            isReady = true;
+            $elements.each( function( i, el ) {
 
-            content
-                .trigger('lity:ready', [self])
-            ;
-        }
-    }
+                var $el = $( el ),
+                    animationClass = $el.data( 'animation' );
 
-    function lity(target, options, opener) {
-        if (!target.preventDefault) {
-            opener = $(opener);
+                $el.addClass( animationClass );
+                $el.addClass( 'animated' );
+                $el.addClass( 'wait-animation' );
+
+                $el.one( 'inview', function() {
+                    $el.removeClass( 'wait-animation' );
+                    $el.addClass( 'done-animation' );
+                });
+            });
+        };
+
+        /**
+         * =======================================
+         * Anchor Link
+         * =======================================
+         */
+        $body.on( 'click', 'a.anchor-link', function( e ) {
+            e.preventDefault();
+
+            var $a = $( this ),
+                $target = $( $a.attr( 'href' ) );
+
+            if ( $target.length < 1 ) return;
+
+            $( 'html, body' ).animate({ scrollTop: Math.max( 0, $target.offset().top - drew.headerFloatingHeight ) }, 1000 );
+        });
+
+        /**
+         * =======================================
+         * Google Maps
+         * =======================================
+         */
+        if ( typeof Maplace == 'function' && $( '#gmap' ) ) {
+            new Maplace( gmap_options ).Load();
+        };
+
+        /**
+         * =======================================
+         * Countdown
+         * =======================================
+         */
+        if ( $.fn.countdown ) {
+            $( '.countdown' ).each( function( i, el ) {
+                var $el = $ ( el ),
+                    date = $el.data( 'countdown' ),
+                    format = $el.html();
+
+                $el.countdown( date, function( e ) {
+                    $( el ).html( e.strftime( format ) );
+                });
+                $el.show();
+            });
+        };
+
+        /**
+         * =======================================
+         * Form AJAX
+         * =======================================
+         */
+        $( 'form' ).each( function( i, el ) {
+
+            var $el = $( this );
+
+            if ( $el.hasClass( 'form-ajax-submit' ) ) {
+
+                $el.on( 'submit', function( e ) {
+                    e.preventDefault();
+
+                    var $alert = $el.find( '.form-validation' ),
+                        $submit = $el.find( 'button' ),
+                        action = $el.attr( 'action' );
+
+                    // button loading
+                    $submit.button( 'loading' );
+
+                    // reset alert
+                    $alert.removeClass( 'alert-danger alert-success' );
+                    $alert.html( '' );
+
+                    $.ajax({
+                        type     : 'POST',
+                        url      : action,
+                        data     : $el.serialize() + '&ajax=1',
+                        dataType : 'JSON',
+                        success  : function( response ) {
+
+                            // custom callback
+                            $el.trigger( 'form-ajax-response', response );
+                            
+                            // error
+                            if ( response.error ) {
+                                $alert.html( response.message );
+                                $alert.addClass( 'alert-danger' ).fadeIn( 500 );
+                            }
+                            // success
+                            else {
+                                $el.trigger( 'reset' );
+                                $alert.html( response.message );
+                                $alert.addClass( 'alert-success' ).fadeIn( 500 );
+                            }
+
+                            // reset button
+                            $submit.button( 'reset' );
+                        },
+                    })
+                });
+            };
+        });
+
+        /* =======================================
+         * Preloader
+         * =======================================
+         */
+        if ( $.fn.jpreLoader && $body.hasClass( 'enable-preloader' ) ) {
+
+            $body.on( 'pageStart', function() {
+                $body.addClass( 'done-preloader' );
+            });
+
+            $body.jpreLoader({
+                showSplash : false,
+                // autoClose : false,
+            }, function() {
+                $body.trigger( 'pageStart' );
+            });
+
         } else {
-            target.preventDefault();
-            opener = $(this);
-            target = opener.data('lity-target') || opener.attr('href') || opener.attr('src');
-        }
+            $body.trigger( 'pageStart' );
+        };
 
-        var instance = new Lity(
-            target,
-            $.extend(
-                {},
-                opener.data('lity-options') || opener.data('lity'),
-                options
-            ),
-            opener,
-            document.activeElement
-        );
+        $window.trigger( 'resize' );
+        $window.trigger( 'scroll' );
 
-        if (!target.preventDefault) {
-            return instance;
-        }
-    }
+    });
 
-    lity.version  = '2.1.0';
-    lity.options  = $.proxy(settings, lity, _defaultOptions);
-    lity.handlers = $.proxy(settings, lity, _defaultOptions.handlers);
-    lity.current  = currentInstance;
-
-    $(document).on('click.lity', '[data-lity]', lity);
-
-    return lity;
-}));
-
-
-
-
+})( jQuery );

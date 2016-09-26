@@ -1,59 +1,58 @@
+<?php
+$View = new View;
+$sliderhome = $View->Load('sliderhome');
+$albunshome = $View->Load('albunshome');
+$post = new Read;
+?>
+
+
+<!-- HERO
+  ================================= -->
+  <section id="hero" class="hero-section hero-layout-simple hero-slider">
+
+    <ul class="section-slider parallax">
+
+        <?php 
+        $post->ExeRead("nit_slider", "WHERE slider_status = 1 ORDER BY slider_order ASC LIMIT :limit", "limit=5");
+        if ($post->getResult()):
+            foreach ($post->getResult() as $slide):
+                $View->Show($slide, $sliderhome);
+            endforeach;
+        else:
+            echo '<div class="container text-center mt80">';
+                WSErro('Você ainda não publicou nenhum Banner! O que está esperando?', WS_INFOR);
+            echo '</div>';            
+        endif;
+        ?>      
+
+    </ul>
+
+  </section>
+
 <section id="portfolio" class="content">
-    <div class="title-section internas text-center">
+    <div class="title-section internas rosa text-center">
         <h3 class="title">Galerias</h3>
         <div class="tracinho"></div>
     </div>
-    <div class="portfolioPage">
-        <div class="container">
-            <ul id="filters" class="clearfix">
-            <?php 
-            $getCats = new Read;
-            $getCats->ExeRead('nit_albuns_cats');
-            if($getCats->getResult()):
-                # Estou buscando apenas o category_id dos resultados e separando
-                # para depois colocar dentro da data-filter "Todos".
-                $cats = implode(" ", array_column($getCats->getResult(), 'category_id'));
 
-                echo '<li><span class="filter active" data-filter="'.$cats.'">Todos</span></li>';
-
-                foreach ($getCats->getResult() as $categoria):
-                    extract($categoria);
-                    echo'<li><span class="filter" data-filter="'.$category_id.'">'.$category_title.'</span></li>';
-                endforeach;
-            endif;      
-            ?>
-            </ul>   
-
-            <div id="portfoliolist">
-                <?php
-                # Busca o portfolio do cliente.
-                $post = new Read;
-                $post->ExeRead("nit_albuns", "WHERE album_status = 1 ORDER BY album_data DESC");
-                
-                if (!$post->getResult()):
-                    WSErro('Nenhum álbum cadastrado!', WS_INFOR);
-                else: ?>    
-                
-                    <?php foreach ($post->getResult() as $album): extract($album); ?>       
-
-                        <div class="portfolio <?= $album_categoria_id ?>" data-cat="<?= $album_categoria_id ?>">
-                            <div class="portfolio-wrapper">             
-                                <img class="img-responsive" src="<?= BASE ?>/tim.php?src=uploads/<?= $album_capa ?>&w=385&h=236&q=90" alt="" />
-                                <div class="label">
-                                    <div class="label-text">
-                                        <a href="<?= HOME ?>/portfolio/<?= $album_url ?>" class="text-title"><?= $album_nome ?></a>
-                                        <p><i class="fa fa-heart-o"></i> <?= Check::QtdImgLikes($album_id); ?> Likes</p>
-                                        <p><i class="fa fa-eye"></i> <?= $album_views ?> Views</p>
-                                    </div>
-                                    <div class="label-bg"></div>
-                                </div>
-                            </div>
-                        </div>              
-                        
-                    <?php endforeach; ?>
-                <?php endif; ?>         
-            </div>
-
+    <div class="mt70">
+        <?php #Traz os albuns do banco.
+        $post->ExeRead("nit_albuns", "WHERE album_status = 1 ORDER BY album_data DESC");
+        if (!$post->getResult()):
+            echo '<div class="container text-center">';
+                WSErro('Você ainda não publicou nenhuma imagem na galeria!', WS_INFOR);  
+            echo '</div>';
+        else:
+        ?>
+        <div id="owl-lastJobs">
+            <?php foreach ($post->getResult() as $album): ?>
+                <?php $album['album_likes'] = Check::QtdImgLikes($album['album_id']); ?>
+                <?php $View->Show($album, $albunshome); ?>
+            <?php endforeach; ?>   
         </div>
+        <?php endif; ?>  
     </div>
+
+    <div class="clearfix"></div>
+
 </section>

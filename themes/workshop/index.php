@@ -8,25 +8,30 @@ $post = new Read;
 
 <div class="loader"></div>
 
-<section class="slider">
-    <?php 
-    $post->ExeRead("nit_slider", "WHERE slider_status = 1 ORDER BY slider_order ASC LIMIT :limit", "limit=5");
-    if ($post->getResult()):
-        echo '<div id="my-slide">';
-        foreach ($post->getResult() as $slide):
-            $View->Show($slide, $sliderhome);
-        endforeach;
-        echo '</div>';
-    else:
-        echo '<div class="container text-center mt80">';
-            WSErro('Você ainda não publicou nenhum Banner! O que está esperando?', WS_INFOR);
-        echo '</div>';            
-    endif;
-    ?>  
+<!-- HERO
+  ================================= -->
+  <section id="hero" class="hero-section hero-layout-simple hero-fullscreen hero-slider">
 
-</section>
+    <ul class="section-slider parallax">
 
-<section id="sobre" class="section-default text-center">
+        <?php 
+        $post->ExeRead("nit_slider", "WHERE slider_status = 1 ORDER BY slider_order ASC LIMIT :limit", "limit=5");
+        if ($post->getResult()):
+            foreach ($post->getResult() as $slide):
+                $View->Show($slide, $sliderhome);
+            endforeach;
+        else:
+            echo '<div class="container text-center mt80">';
+                WSErro('Você ainda não publicou nenhum Banner! O que está esperando?', WS_INFOR);
+            echo '</div>';            
+        endif;
+        ?>      
+
+    </ul>
+
+  </section>
+
+<section id="sobre" class="section-default section-sobre">
     <div class="container">
         <div class="title-section">
             <h3 class="title"><?php echo $user_name = (isset($user_name) && !empty($user_name) ? $user_name : 'Seu nome aqui'); ?></h3>
@@ -36,16 +41,28 @@ $post = new Read;
         <div class="textSobre">
         <?php if (isset($user_about) && !empty($user_about)): ?>
             <?php echo htmlspecialchars_decode($user_about); ?>
+            <button type="button" class="btn btn-custom-brand mt10" data-toggle="modal" data-target="#modalMessage">Convide Viviane Teodoro para um evento.</button>
         <?php else: ?>
             <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
         <?php endif; ?>     
         </div>      
-
-        <!-- Video Youtube -->
-        <div class="video-container mt50">
-            <iframe width="900" height="506" src="https://www.youtube.com/embed/eJsf1vNCSJo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        
+        <div class="col-sm-6">
+            <!-- Video Youtube -->
+            <div class="video-container mt50">
+                <iframe width="900" height="506" src="https://www.youtube.com/embed/eJsf1vNCSJo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
 
+        <div class="col-sm-6">
+            <div class="foto-container">
+            <?php if (isset($user_foto) && !empty($user_foto)): ?>
+                <img src="<?= BASE ?>/tim.php?src=uploads/<?php echo $user_foto; ?>&w=800&h=800&q=90" class="foto img-responsive img-circle center-block">
+            <?php endif; ?>        
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
         <div>
             <a href="http://www.vivianeteodorofotografia.com.br" target="_blank" class="btn btn-custom-brand mt60">Saiba mais</a>       
         </div>
@@ -121,7 +138,7 @@ $post = new Read;
             <?php endforeach; ?>   
         <?php endif; ?>  
 
- <?php endif; ?> 
+        <?php endif; ?> 
 
         <div class="clearfix"></div>
 
@@ -140,7 +157,7 @@ $post = new Read;
     $post->ExeRead("nit_albuns", "WHERE album_status = 1 ORDER BY album_data DESC LIMIT :limit", "limit=8");
     if (!$post->getResult()):
         echo '<div class="container text-center">';
-            WSErro('Você ainda não publicou nenhum trabalho!', WS_INFOR);  
+            WSErro('Você ainda não publicou nenhuma imagem na galeria!', WS_INFOR);  
         echo '</div>';
     else:
     ?>
@@ -151,6 +168,7 @@ $post = new Read;
         <?php endforeach; ?>   
     </div>
     <?php endif; ?>  
+    <div class="clearfix"></div>
     <a href="<?= HOME ?>/portfolios/" class="btn btn-custom-brand mt60">Ver últimos cursos</a>
 
     <div class="btn-scroll">

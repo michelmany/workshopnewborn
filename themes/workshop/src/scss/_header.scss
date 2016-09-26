@@ -3,8 +3,8 @@
 ************************/
 
 //LOADER 
-/* This only works with JavaScript, 
-if it's not present, don't show loader */
+//* This only works with JavaScript, 
+//* if it's not present, don't show loader *//
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
 .loader {
@@ -27,14 +27,22 @@ if it's not present, don't show loader */
 	border: 0;
     margin-bottom: 0;
     z-index: 999;
+	@media screen and (max-width: 767px) {
+		background-color: rgba($primary-color, 0.9);
+		border: 0;
+	    margin-bottom: 0;
+	}	
+
 }
 
 .navbar-nav {
     i { font-size: 14px; };
+
+    
 }
 
 .navbar-nav li a {
-    line-height: 95px; /* CENTRALIZA OS LINKS DO MENU NA BARRA*/
+    line-height: 95px; //* CENTRALIZA OS LINKS DO MENU NA BARRA
 }
 
 .navbar-brand {
@@ -42,19 +50,48 @@ if it's not present, don't show loader */
     img { 
 	    max-width: 143px;
 	    padding: 10px 0;
-	    @media screen and (min-width: 1200px) {
-	    	
+	    @media screen and (max-width: 767px) {
+			max-width: 75px;
+			padding: 10px;	    	
 	    }
+
     }
 }
 
-.navbar-default .navbar-nav > li > a {
-	color: $white;
-	font-family: $primary-font;
-	font-size: 14px;
-	transition: all 0.3s ease-out 0s;
-	text-transform: uppercase;
-		&:hover {
-			color: $secondary-color;
-		}
+
+.navbar-default {
+
+	.navbar-collapse {
+		border: 0;
+	}
+
+	.navbar-nav > li > a {
+		color: $white;
+		font-family: $primary-font;
+		font-size: 14px;
+		transition: all 0.3s ease-out 0s;
+		text-transform: uppercase;
+			&:hover {
+				color: $secondary-color;
+			}
+	}
+
+	.navbar-toggle {
+		position: relative;
+		z-index: 200;		
+		margin: 20px 30px;	    
+	    background-color: transparent;
+	    border: 1px solid $white;
+	    border-radius: 0;
+		-webkit-transition: all ease 0.25s;
+		transition: all ease 0.25s;	    
+
+	    &:hover {
+	    	background-color: transparent;
+	    }
+	    &:focus {
+	    	background-color: transparent;
+	    }
+	}	
+
 }

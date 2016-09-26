@@ -46,12 +46,9 @@ if (!empty($data[1])) {
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <?php if( isset($pagina) && ($pagina == 'portfolios' || $pagina == 'portfolio' || $pagina == 'posts' || $pagina == 'post')): ?>
-                        <li><a href="<?= HOME ?>/portfolios/" class="page-scroll">Trabalhos</a></li>
+                        <li><a href="<?= HOME ?>/portfolios/" class="page-scroll">Galeria</a></li>
                         <li><a href="javascript:window.history.go(-1)">Voltar</a></li>
-                        <li class="icons-menu"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="icons-menu"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="icons-menu"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li class="icons-menu"><a href="#"><i class="fa fa-skype"></i></a></li>                        
+                   
                     <?php else: ?>
                         <li><a href="<?= HOME ?>">Home</a></li>
                         <li><a href="#sobre" class="page-scroll">Sobre</a></li>
@@ -60,7 +57,7 @@ if (!empty($data[1])) {
                         <li><a href="#videos" class="page-scroll">Videos</a></li>
                         <li><a href="#depoimentos" class="page-scroll">Depoimentos</a></li>
                         <li><a href="#contato" class="page-scroll">Contato</a></li>
-                        <?php include('social-icons.inc.php'); ?>
+                        
                     <?php endif; ?>
                 </ul>
             </div>

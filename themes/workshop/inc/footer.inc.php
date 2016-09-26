@@ -23,7 +23,8 @@
                     "480": { "columns": 1, "rows": 1, "gutter": 0 }
              }'>
         </div>    
-    </section>    
+    </section>
+
     
     <footer id="contato" class="footer">
         <div class="container">
@@ -32,15 +33,17 @@
                     <h5 class="title-widget">Facebook</h5>
                     <div class="tracinho traco-menor"></div>
                     <div class="content-widget">
-                        <div id="fb-root"></div>
-                        <div class="fb-page"
-                            data-href="https://www.facebook.com/<?= $user_facebook; ?>" 
-                            data-small-header="true" 
-                            data-adapt-container-width="true" 
-                            data-hide-cover="false" 
-                            data-show-facepile="true"
-                            data-show-posts="false">
-                        </div>              
+                        <div class="face-widget">
+                            <div id="fb-root"></div>
+                            <div class="fb-page"
+                                data-href="https://www.facebook.com/<?= $user_facebook; ?>" 
+                                data-small-header="true" 
+                                data-adapt-container-width="true" 
+                                data-hide-cover="false" 
+                                data-show-facepile="true"
+                                data-show-posts="false">
+                            </div> 
+                        </div>             
                     </div> 
                 </div>             
             </div>

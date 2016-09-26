@@ -78,7 +78,7 @@ endif;
 			<div class="panel-body">
 
 				<div class="row">	
-					<ul id="sortable">
+					<ul id="sortable" class="sortable-slider">
 
 						<?php # FAZ A LEITURA NO BANCO E FAZ O LOOP PARA MOSTRAR OS RESULTADOS #
 						$readSlider = new Read;

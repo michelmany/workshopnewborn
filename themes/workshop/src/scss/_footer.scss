@@ -76,6 +76,16 @@
 			font-size: 13px; 
 			color: $secondary-color;
 		}
+
+		.face-widget {
+			@media screen and (max-width: 991px) {
+				max-width: 360px;
+				display: block;
+				margin: 0 auto 40px;
+				
+			}
+
+		}
 	}
 
 	// DEIXA O FB LIKEBOX RESPONSIVO

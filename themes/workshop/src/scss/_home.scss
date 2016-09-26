@@ -69,6 +69,29 @@ section.sobre {
 	padding: 100px 0;
 	text-align: center;
 
+	//SOBRE
+	&.section-sobre {
+		text-align: center;
+
+		.video-container {
+
+		}
+
+		.foto-container {
+			padding: 45px;
+			.foto {
+				max-height: 450px;
+				@media screen and (min-width: 992px) {
+					max-height: 300px;
+				}				
+				@media screen and (min-width: 1200px) {
+					max-height: 350px;
+				}
+			}
+		}
+
+	}
+
 	//BLOG
 	&.section-blog {
 		background-color: #fcd7b0; 
@@ -113,7 +136,7 @@ section.sobre {
 			}
 			&-content {
 				background-color: $white;
-				padding: 30px;
+				padding: 20px;
 				color: $white;
 				height: 275px;			
 	
@@ -147,7 +170,7 @@ section.sobre {
 	&.section-lastjobs {
 		background-color: $off-white;
 		#owl-lastJobs .item{
-			margin: 30px 0;
+			margin: 0;
 		}
 		#owl-lastJobs .item img{
 		  display: block;

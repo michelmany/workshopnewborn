@@ -4,7 +4,7 @@ var gulp = require('gulp');
 // Include Our Plugins
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
-var jshint      = require('gulp-jshint');
+// var jshint      = require('gulp-jshint');
 var sass        = require('gulp-sass');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
@@ -26,11 +26,11 @@ gulp.task('copygif', function() {
 
 
 // Lint Task
-gulp.task('lint', function() {
-    return gulp.src('src/js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
-});
+// gulp.task('lint', function() {
+//     return gulp.src('src/js/*.js')
+//         .pipe(jshint())
+//         .pipe(jshint.reporter('default'));
+// });
 
 // Compile Our Sass
 gulp.task('sass', function() {
@@ -106,10 +106,12 @@ gulp.task('serve', ['sass', 'scripts', 'plugins', 'minify-css-plugins'], functio
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('src/js/*.js', ['lint', 'scripts']);
+    gulp.watch('src/js/*.js', ['scripts']);
     gulp.watch('src/scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'copygif', 'images']);
+gulp.task('default', ['sass', 'scripts', 'plugins', 'copygif', 'images']);
+
+gulp.task('deploy', ['sass', 'scripts', 'plugins', 'minify-css-plugins', 'copygif', 'images']);
 

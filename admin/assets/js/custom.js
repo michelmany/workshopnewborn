@@ -2004,7 +2004,7 @@ jQuery(document).ready(function($)
 
 // Reordena os ítens do SLIDER
 $(function() {
-    $('#sortable').sortable({
+    $('#sortable.sortable-slider').sortable({
     	connectWith: ".column",
     	placeholder: "portlet-placeholder",
         //opacity: 0.7,
@@ -2043,9 +2043,9 @@ $(function() {
     }); 
 });
 
-// Reordena os ítens do SLIDER
+// Reordena os ítens dos Parceiros
 $(function() {
-    $('#sortable').sortable({
+    $('#sortable.sortable-parceiros').sortable({
     	connectWith: ".column",
     	placeholder: "portlet-placeholder",
         //opacity: 0.7,

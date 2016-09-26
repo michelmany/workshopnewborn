@@ -6,6 +6,35 @@ else:
 endif;
 ?>  
 
+<?php
+$View = new View;
+$sliderhome = $View->Load('sliderhome');
+$post = new Read;
+?>
+
+<!-- HERO
+  ================================= -->
+  <section id="hero" class="hero-section hero-layout-simple  hero-slider">
+
+    <ul class="section-slider parallax">
+
+        <?php 
+        $post->ExeRead("nit_slider", "WHERE slider_status = 1 ORDER BY slider_order ASC LIMIT :limit", "limit=5");
+        if ($post->getResult()):
+            foreach ($post->getResult() as $slide):
+                $View->Show($slide, $sliderhome);
+            endforeach;
+        else:
+            echo '<div class="container text-center mt80">';
+                WSErro('Você ainda não publicou nenhum Banner! O que está esperando?', WS_INFOR);
+            echo '</div>';            
+        endif;
+        ?>      
+
+    </ul>
+
+  </section>
+
     <section id="portfolio-single" class="content">
         <div class="title-section internas text-center">
             <h3 class="title">Portfolio</h3>

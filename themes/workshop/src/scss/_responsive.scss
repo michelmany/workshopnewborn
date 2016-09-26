@@ -27,15 +27,15 @@
 	}	
 
 
-	.navbar-brand {
-		margin-top: 5px;
-	    img { 
-			max-height: 130px;
-		    max-width: 200px;
-		    margin-top: 0px;
-	    }		
+	// .navbar-brand {
+	// 	margin-top: 5px;
+	//     img { 
+	// 		max-height: 130px;
+	// 	    max-width: 200px;
+	// 	    margin-top: 0px;
+	//     }		
 
-	}
+	// }
 
 	.navbar-default .navbar-nav > li > a {
 		font-size: 13px;
@@ -72,11 +72,7 @@
 		li { float: none; display: inline; }
 		.icons-menu {display: none;}
 	}	
-	.navbar {
-		background-color: $primary-color;
-		border: 0;
-	    margin-bottom: 0;
-	}	
+
 
 	.navbar-collapse {
 	    opacity: 0.96;
@@ -94,17 +90,16 @@
 		padding: 15px 15px;
 		line-height: 1;
 	}
-	.navbar-brand {
-		margin-top: 5px;
-		margin-left: 15px;
-	    img { 
-	    	max-height: 74px; 
-	    	max-width: 220px;
-    		margin-top: 0;
-	    }
-	}	
+	// .navbar-brand {
+	// 	margin-top: 5px;
+	// 	margin-left: 15px;
+	//     img { 
+	//     	max-width: 100%;
+ //    		margin-top: 0;
+	//     }
+	// }	
 
-	.navbar-toggle {margin: 25px;}	/* IMPORTANTE PARA AUMENTAR A ALTURA DA NAVBAR */
+
     .foto-insta {width: 50%;}
 
 	section.slider {

@@ -9,6 +9,7 @@ $headline-font: 'Architects Daughter', sans-serif;
 
 $primary-color: #b3797a;
 $secondary-color: #D2D7D6;
+$color-brand-purple: #737592;
 $text-color: #b5b5b5;
 $white: #fff;
 $off-white: #eeeef2;
@@ -243,9 +244,24 @@ PÁGINAS
 
 
 .internas { 
-    background-color: $off-white; 
-    padding: 60px 0;
-    margin-top: -15px;
+
+    &.verde {
+        background-color: #BDDCD9;
+    }
+    &.purple {
+        background-color: $color-brand-purple;  
+    }
+    &.rosa {
+        background-color: $primary-color;
+    }
+    padding: 25px 0;
+    margin-top: 0;
+    .title {
+        color: $white;
+    }
+    .tracinho {
+        background-color: $white;
+    }
 }
 
 .tracinho {
