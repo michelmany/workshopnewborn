@@ -42,11 +42,6 @@ section.slider {
 			
 }
 
-// SOBRE O FOTÓGRAFO
-section.sobre { 
-	background-color: #fff; 
-	padding: 100px 0;
-}
 
 //video youtube responsive
 .video-container {
@@ -73,8 +68,13 @@ section.sobre {
 	&.section-sobre {
 		text-align: center;
 
-		.video-container {
-
+		.section-sobre-copy {
+			a {
+				color: $primary-color;
+				&:hover {
+					color: lighten( $primary-color, 20% );
+				}
+			}
 		}
 
 		.foto-container {

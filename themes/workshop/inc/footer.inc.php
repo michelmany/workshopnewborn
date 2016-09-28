@@ -1,4 +1,4 @@
-
+<?php /* 
     <section id="instagram-section" class="section-instagram">
         <div class="section-instagram-bar">
             <div class="container">
@@ -24,7 +24,7 @@
              }'>
         </div>    
     </section>
-
+*/ ?>
     
     <footer id="contato" class="footer">
         <div class="container">

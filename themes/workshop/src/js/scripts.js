@@ -4,7 +4,7 @@ $(window).load(function () {
 });
 
 
-//Carrega o OWN SLIDE (Carrousel) - lastjobs
+//Carrega o OWN SLIDE (Carrousel) - VIDEOS
 $(document).ready(function() {
  
   $(".carousel-videos").owlCarousel({
@@ -12,7 +12,8 @@ $(document).ready(function() {
     items : 3,
     itemsDesktop : [1199,3],
     itemsDesktopSmall : [979,3],
-    itemsTablet: [768, 1],
+    itemsTablet: [768, 2],
+    itemsMobile : [479, 1],    
     pagination: true
  
   });

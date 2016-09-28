@@ -38,10 +38,10 @@ $post = new Read;
             <div class="tracinho"></div>
         </div>
 
-        <div class="textSobre">
+        <div class="section-sobre-copy">
         <?php if (isset($user_about) && !empty($user_about)): ?>
             <?php echo htmlspecialchars_decode($user_about); ?>
-            <button type="button" class="btn btn-custom-brand mt10" data-toggle="modal" data-target="#modalMessage">Convide Viviane Teodoro para um evento.</button>
+            <a href="#" class="mt10" data-toggle="modal" data-target="#modalMessage"><i class="fa fa-bullhorn" aria-hidden="true"></i> Convide Viviane Teodoro para um evento</a>
         <?php else: ?>
             <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
         <?php endif; ?>     
@@ -384,24 +384,24 @@ $post = new Read;
         <div class="tracinho"></div>
     </div>
     <?php #Traz os albuns do banco.
-    $post->ExeRead("nit_albuns", "WHERE album_status = 1 ORDER BY album_data DESC LIMIT :limit", "limit=8");
+    $post->ExeRead("nit_videos", "ORDER BY video_date DESC");
     if (!$post->getResult()):
         echo '<div class="container text-center">';
-            WSErro('Você ainda não publicou nenhum trabalho!', WS_INFOR);  
+            WSErro('Você ainda não publicou nenhum vídeo!', WS_INFOR);  
         echo '</div>';
     else:
     ?>
     <div class="carousel-videos">
         <?php foreach ($post->getResult() as $album): extract($album);?>
-            <?php $album['album_likes'] = Check::QtdImgLikes($album['album_id']); ?>
-
 
                 <div class="item">
                     <div class="portfolio-wrapper"> 
-                        <a href="//www.youtube.com/watch?v=XSGBVzeBUbk" data-lity><img src="<?= BASE ?>/tim.php?src=uploads/<?= $album_capa ?>&w=635&h=422&q=90" class="img-responsive" alt="Capa do Album"></a>
+                        <a href="//www.youtube.com/watch?v=<?= $video_url; ?>" title="Clique para ver o Vídeo" data-lity>
+                          <?php #pega thumbnail direto do video do youtube ?>
+                          <img src="http://img.youtube.com/vi/<?= $video_url; ?>/hqdefault.jpg" class="img-responsive">
+                        </a>
                     </div>          
                 </div>
-
 
         <?php endforeach; ?>
     </div>
