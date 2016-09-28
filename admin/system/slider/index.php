@@ -95,7 +95,7 @@ endif;
 									if (file_exists($filename)): 
 									?>
 										<li class="view view-first sliderImg" id="<?php echo $slider_id ?>">
-											<img src="<?= BASE; ?>/tim.php?src=uploads/<?= $slider_url_img; ?>&w=180&h=105&q=80">
+											<img src="<?= BASE; ?>/tim.php?src=uploads/<?= $slider_url_img; ?>&w=180&h=105&q=80?<?php time(); ?>">
 											<div class="mask">
 												<p><?php echo $slider_title2; ?></p>
 												<a class="btn btn-orange" href="painel.php?exe=slider/update&sliderid=<?= $slider_id; ?>" title="Editar"><i class="fa-wrench"></i></a>
