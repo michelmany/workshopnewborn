@@ -33,6 +33,12 @@ class AdminParceiros {
                 $upload->Image($this->Data['slider_url_img'], 'logoparceiro-'.$this->Data['slider_title2'], 1920, 'images/user-id'.$this->UserID);
             endif;
 
+            if(isset($this->Data['slider_link'])):
+                $str = $this->Data['slider_link'];
+                $str = preg_replace('#^https?://#', '', $str);
+                $this->Data['slider_link'] = $str;                 
+            endif;            
+
             if (isset($upload) && $upload->getResult()):
                 $this->Data['slider_url_img'] = $upload->getResult();
                 $this->Create();
@@ -68,6 +74,13 @@ class AdminParceiros {
                 $uploadCapa = new Upload;
                 $uploadCapa->Image($this->Data['slider_url_img'], 'logoparceiro-'.$this->Data['slider_title2'], 1920, 'images/user-id'.$this->UserID);
             endif;
+
+            if(isset($this->Data['slider_link'])):
+                $str = $this->Data['slider_link'];
+                $str = preg_replace('#^https?://#', '', $str);
+                $this->Data['slider_link'] = $str;                 
+            endif;
+         
 
             if (isset($uploadCapa) && $uploadCapa->getResult()):
                 $this->Data['slider_url_img'] = $uploadCapa->getResult();
