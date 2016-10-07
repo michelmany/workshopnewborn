@@ -3,3 +3,4 @@ _app/Config.inc.php
 uploads/cache/*
 uploads
 .gitignore
+*.sql

@@ -17,7 +17,7 @@ endif;
 	<div class="breadcrumb-env">
 		<ol class="breadcrumb bc-1" >
 			<li><a href="painel.php"><i class="fa-home"></i>Home</a></li>
-			<li><a href="painel.php?exe=depoimentos/index">cursos</a></li>
+			<li><a href="painel.php?exe=workshops/index">cursos</a></li>
 			<li class="active"><strong>Cadastrar curso</strong></li>
 		</ol>
 	</div>
