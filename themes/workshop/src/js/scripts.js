@@ -118,7 +118,6 @@ $('.mask').on('click','.j_likeitbtn', function () {
   album_id    = this.getAttribute("album-id");
   base_url    = this.getAttribute("url-base");
   user_ip     = this.getAttribute("user-ip");
-  cliente_id  = this.getAttribute("cliente-id");
 
   /* troco a classe do botão e o texto */
   $(this).removeClass('btn-curtir').addClass('btn-curtido');
@@ -126,9 +125,9 @@ $('.mask').on('click','.j_likeitbtn', function () {
 
   $.ajax({  
     type: 'POST',
-    data: {loveit_img_id:img_id, loveit_album_id:album_id, loveit_cliente_id:cliente_id, loveit_user_ip: user_ip},
+    data: {loveit_img_id:img_id, loveit_album_id:album_id, loveit_user_ip: user_ip},
 
-    url: base_url + "/clientes/data/ajax-likebtn.php",  
+    url: base_url + "/admin/data/ajax-likebtn.php",  
     success: function(data) {
       console.log(data);
     } 

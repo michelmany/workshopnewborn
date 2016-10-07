@@ -96,6 +96,7 @@ endif;
 								<div class="form-group-separator"></div>			
 
 								<!-- Vídeo -->
+								<?php /* Deixa pra depois os videos
 								<div class="form-group"> 
 									<label class="col-sm-3 control-label" for="field-1">ID do vídeo no vimeo</label> 
 									<div class="col-sm-9">
@@ -106,7 +107,10 @@ endif;
 									</div>
 								</div>	
 
-								<div class="form-group-separator"></div>			
+								<div class="form-group-separator"></div>	
+
+								*/ ?>
+		
 
 								<!-- Local -->
 								<div class="form-group"> 

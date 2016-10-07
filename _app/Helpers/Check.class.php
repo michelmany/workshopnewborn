@@ -309,7 +309,7 @@ class Check {
     public static function QtdTotalLikes($UserID) {
 
         $read = new Read;
-        $read->ExeRead('nit_loveit', "WHERE loveit_cliente_id = :clienteid", "clienteid={$UserID}");
+        $read->ExeRead('nit_loveit');
         if ($read->getResult()):
             $Likes = $read->getRowCount();
             return $Likes;
@@ -327,11 +327,10 @@ class Check {
         $read = new Read;
         $read->FullRead("SELECT loveit_img_id, COUNT(loveit_img_id) 
                             AS curtidas 
-                            FROM nit_loveit 
-                            WHERE loveit_cliente_id = :clienteid
+                            FROM nit_loveit
                             GROUP BY loveit_img_id 
-                            HAVING COUNT(loveit_img_id) > 1 
-                            ORDER BY COUNT(loveit_img_id) DESC", "clienteid={$UserID}");
+                            HAVING COUNT(loveit_img_id) > 1
+                            ORDER BY COUNT(loveit_img_id) DESC");
 
         if ($read->getResult()):
             $Likes = $read->getResult()[0]['curtidas']; #Pego o primeiro resultado e mostra o valor da coluna 'curtidas'.

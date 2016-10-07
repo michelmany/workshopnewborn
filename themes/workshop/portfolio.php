@@ -90,7 +90,6 @@ $post = new Read;
                             <?php else: # Se não, mostra o botão de curtir! ?>
                                 <a class="btn btn-default j_likeitbtn btn-curtir" 
                                     url-base="<?= BASE ?>" 
-                                    cliente-id="<?= $UserID ?>" 
                                     img-id="<?= $gallery_id; ?>" 
                                     album-id="<?= $album_id ?>"
                                     user-ip="<?= $_SERVER['REMOTE_ADDR'] ?>">

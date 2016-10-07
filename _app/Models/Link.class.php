@@ -53,9 +53,7 @@ class Link {
         if (file_exists(REQUIRE_PATH . DIRECTORY_SEPARATOR . $this->File . '.php')):
             $this->Patch = REQUIRE_PATH . DIRECTORY_SEPARATOR . $this->File . '.php';
         elseif (file_exists(REQUIRE_PATH . DIRECTORY_SEPARATOR . $this->File . DIRECTORY_SEPARATOR . $this->Link . '.php')):
-            $this->Patch = REQUIRE_PATH . DIRECTORY_SEPARATOR . $this->File . DIRECTORY_SEPARATOR . $this->Link . '.php';
-        elseif (file_exists(REQUIRE_PATH_USER . DIRECTORY_SEPARATOR . $this->File . '.php')):
-             $this->Patch = REQUIRE_PATH_USER . DIRECTORY_SEPARATOR . $this->File . '.php';        
+            $this->Patch = REQUIRE_PATH . DIRECTORY_SEPARATOR . $this->File . DIRECTORY_SEPARATOR . $this->Link . '.php';       
         else:
             if (file_exists(REQUIRE_PATH . DIRECTORY_SEPARATOR . '404.php')):
                 $this->Patch = REQUIRE_PATH . DIRECTORY_SEPARATOR . '404.php';

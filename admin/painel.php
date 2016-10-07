@@ -371,22 +371,13 @@ endif;
 			
 
 			<?php // VERIFICA SE TEM DOMÍNIO, SE NÃO TIVER TRAZ O SUBDOMINIO DO CLIENTE. 
-				$SiteCliente = (isset($userlogin['user_domain']) && !empty($userlogin['user_domain'])) ? $userlogin['user_domain'] : $userlogin['user_username'].'.'.$_SERVER['SERVER_NAME'];
-			 ?>
-
-
+				$SiteCliente = (isset($userlogin['user_domain']) && !empty($userlogin['user_domain'])) ? $userlogin['user_domain'] : '' ?>
 
 						<ul class="dropdown-menu user-profile-menu list-unstyled">
 							<li>
 								<a href="http://<?php echo $SiteCliente ?>" target="_blank">
 									<i class="fa-eye"></i>
 									Ver site
-								</a>
-							</li>
-							<li>
-								<a href="painel.php?exe=account/index">
-									<i class="fa-user"></i>
-									Minha conta
 								</a>
 							</li>
 							<li class="last">

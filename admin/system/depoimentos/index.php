@@ -71,7 +71,7 @@ endif;
 							<?php extract($row); # Função nativa do php que transforma resultados em variáveis. ?> 
 							<tr>
 								<td><?php echo $depo_nome; ?></td>
-								<td><?php echo Check::Words($depo_msg, 20); ?></td>
+								<td><?php echo Check::Words($depo_msg, 10); ?></td>
 								<td><?php echo date('d/m/Y', strtotime($depo_date)); ?></td>
 								<td>
 									<a class="btn btn-orange" href="painel.php?exe=depoimentos/update&depoid=<?= $depo_id; ?>" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa-wrench"></i></a>

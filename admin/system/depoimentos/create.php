@@ -92,7 +92,7 @@ endif;
 						<div class="form-group"> 
 							<label class="col-sm-3 control-label" for="field-1">Mensagem</label> 
 							<div class="col-sm-9"> 
-								<textarea class="form-control" rows="5" name="depo_msg" required><?php if($form['depo_msg']) echo $form['depo_msg'] ?></textarea>										
+								<textarea class="form-control" rows="10" name="depo_msg" required><?php if($form['depo_msg']) echo $form['depo_msg'] ?></textarea>										
 							</div> 
 						</div>	
 						
