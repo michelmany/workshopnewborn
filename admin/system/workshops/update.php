@@ -18,7 +18,7 @@ endif;
 		<ol class="breadcrumb bc-1" >
 			<li><a href="painel.php"><i class="fa-home"></i>Home</a></li>
 			<li><a href="painel.php?exe=workshops/index">cursos</a></li>
-			<li class="active"><strong>Cadastrar curso</strong></li>
+			<li class="active"><strong>Editar curso</strong></li>
 		</ol>
 	</div>
 	
@@ -29,7 +29,7 @@ endif;
 		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Cadastrar curso</h3>
+					<h3 class="panel-title">Editar curso</h3>
 					<div class="panel-options">
 							<a href="#" data-toggle="panel">
 								<span class="collapse-icon">&ndash;</span>
@@ -150,7 +150,9 @@ endif;
 						<div class="form-group"> 
 							<label class="col-sm-3 control-label" for="field-1">Detalhes</label> 
 							<div class="col-sm-9"> 
-								<textarea class="form-control" rows="10" name="workshop_msg" required><?php if (!empty($row['workshop_msg'])) echo $row['workshop_msg']; ?></textarea>										
+								<textarea class="form-control ckeditor" rows="10" name="workshop_msg" required>
+									<?php if (!empty($row['workshop_msg'])) echo $row['workshop_msg']; ?>
+								</textarea>										
 							</div> 
 						</div>
 
@@ -166,7 +168,7 @@ endif;
 						
 						<!-- Btn envia -->
 						<div class="pull-right">				
-							<input type="submit" class="btn btn-success btn-lg" value="Cadastrar Workshop" name="SendPostForm">
+							<input type="submit" class="btn btn-success btn-lg" value="Atualizar Workshop" name="SendPostForm">
 						</div>								
 
 					</form>

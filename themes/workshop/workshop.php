@@ -58,8 +58,9 @@ $post = new Read;
                         </div>        
                         <div class="section-workshop-content mt20">
                             <p><strong>Agenda:</strong> <?php echo date('d/m/Y', strtotime($workshop_date)); ?></p>
-                            <p><strong>Local:</strong> <?php echo $workshop_local; ?></p>
-                            <p class="mt20"><strong>Detalhes:<br></strong> <?php echo $workshop_msg; ?></p>
+                            <p><strong>Local:</strong> <?php echo $workshop_local; ?></p><br>
+                            <p><strong>Detalhes:</strong></p>
+                            <?php echo htmlspecialchars_decode($workshop_msg); ?>
                         </div>             
 
                         <button class="btn btn-custom-brand mt20">Inscrever-se</button>     

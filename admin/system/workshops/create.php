@@ -121,7 +121,9 @@ endif;
 						<div class="form-group"> 
 							<label class="col-sm-3 control-label" for="field-1">Detalhes</label> 
 							<div class="col-sm-9"> 
-								<textarea class="form-control" rows="10" name="workshop_msg" required><?php if($form['workshop_msg']) echo $form['workshop_msg'] ?></textarea>										
+								<textarea class="form-control ckeditor" rows="10" name="workshop_msg" required>
+									<?php if($form['workshop_msg']) echo $form['workshop_msg'] ?>
+								</textarea>										
 							</div> 
 						</div>
 

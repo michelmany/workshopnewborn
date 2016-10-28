@@ -27,19 +27,19 @@ class AdminWorkshop {
         $this->setData();
         $this->setName();
 
-            if ($this->Data['workshop_capa']):
-                $uplaod = new Upload;
-                $uplaod->Image($this->Data['workshop_capa'], 'workshopcapa-'.$this->Data['workshop_url'], null, 'images/workshops');
-            endif;
+        if ($this->Data['workshop_capa']):
+            $uplaod = new Upload;
+            $uplaod->Image($this->Data['workshop_capa'], 'workshopcapa-'.$this->Data['workshop_url'], null, 'images/workshops');
+        endif;
 
-            if (isset($uplaod) && $uplaod->getResult()):
-                $this->Data['workshop_capa'] = $uplaod->getResult();
-                $this->Create();
-            else:
-                $this->Data['workshop_capa'] = null;
-                $_SESSION['errCapa'] = "<br>Erro ao enviar Capa:</b> Tipo de arquivo inválido, envie imagens JPG ou PNG!";
-                $this->Create();
-            endif;      
+        if (isset($uplaod) && $uplaod->getResult()):
+            $this->Data['workshop_capa'] = $uplaod->getResult();
+            $this->Create();
+        else:
+            $this->Data['workshop_capa'] = null;
+            $_SESSION['errCapa'] = "<br>Erro ao enviar Capa:</b> Tipo de arquivo inválido, envie imagens JPG ou PNG!";
+            $this->Create();
+        endif;      
 
     }
 
@@ -51,7 +51,7 @@ class AdminWorkshop {
      */
     public function ExeUpdate($DepoId, array $Data) {
         $this->Depo = (int) $DepoId;
-        $this->Data = $Data;
+        $this->Data = $Data;    
 
         $this->checkData();
 
@@ -106,13 +106,17 @@ class AdminWorkshop {
     private function setData() {
         $Cover = $this->Data['workshop_capa'];
         unset($this->Data['workshop_capa']);
+        $Workshop_msg = $this->Data['workshop_msg']; //jogo para uma nova variable pra nao passar pelo strip_tags e trim.
+        unset($this->Data['workshop_msg']);
 
         $this->Data = array_map('strip_tags', $this->Data);
         $this->Data = array_map('trim', $this->Data);
         $this->Data['workshop_nome'] = str_replace('&', 'e', $this->Data['workshop_nome']);
         $this->Data['workshop_url'] = Check::Name($this->Data['workshop_nome']);
 
+        //volto com as variaveis dentro do $this->Data.
         $this->Data['workshop_capa'] = $Cover;
+        $this->Data['workshop_msg'] = $Workshop_msg;
     }
 
     //Verifica o NAME post. Se existir adiciona um pós-fix -Count
@@ -158,6 +162,7 @@ class AdminWorkshop {
         $this->Data['workshop_date'] = Check::Data($this->Data['workshop_date']);
 
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE workshop_id = :id", "id={$this->Depo}");
+
         if ($Update->getResult()):
             //$this->Error = ["O Depoimento de <b>{$this->Data['workshop_nome']}</b> foi atualizado com sucesso!", WS_ACCEPT];
             #envia mensagem de sucesso pela SESSION para mostrar na página de retorno.
