@@ -12,41 +12,39 @@ $sliderhome = $View->Load('sliderhome');
 $post = new Read;
 ?>
 
-
-
 <!-- HERO
-  ================================= -->
-  <section id="hero" class="hero-section hero-layout-simple  hero-slider">
+    ================================= -->
+    <section id="hero" class="hero-section hero-layout-simple  hero-slider">
 
-    <ul class="section-slider parallax">
+        <ul class="section-slider parallax">
 
-        <?php 
-        $post->ExeRead("nit_slider", "WHERE slider_status = 1 ORDER BY slider_order ASC LIMIT :limit", "limit=5");
-        if ($post->getResult()):
-            foreach ($post->getResult() as $slide):
-                $View->Show($slide, $sliderhome);
-            endforeach;
-        else:
-            echo '<div class="container text-center mt80">';
+            <?php 
+            $post->ExeRead("nit_slider", "WHERE slider_status = 1 ORDER BY slider_order ASC LIMIT :limit", "limit=5");
+            if ($post->getResult()):
+                foreach ($post->getResult() as $slide):
+                    $View->Show($slide, $sliderhome);
+                endforeach;
+                else:
+                    echo '<div class="container text-center mt80">';
                 WSErro('Você ainda não publicou nenhum Banner! O que está esperando?', WS_INFOR);
-            echo '</div>';            
-        endif;
-        ?>      
+                echo '</div>';            
+                endif;
+                ?>      
 
-    </ul>
+            </ul>
 
-  </section>
+        </section>
 
 
-    <section id="portfolio-single" class="content">
-        <div class="title-section internas verde text-center">        
-            <h3 class="title"><?php echo $workshop_nome; ?></h3>
-            <div class="tracinho"></div>
-        </div>
+        <section id="portfolio-single" class="content">
+            <div class="title-section internas verde text-center">        
+                <h3 class="title"><?php echo $workshop_nome; ?></h3>
+                <div class="tracinho"></div>
+            </div>
 
-        <div class="container portfolioPageSingle text-left mt40">
+            <div class="container portfolioPageSingle text-left mt40">
 
-             <div id="row">
+                <div id="row">
 
                     <div class="col-sm-5 mb30">
                         <img src="<?php echo BASE; ?>/tim.php?src=uploads/<?php echo $workshop_capa; ?>&w=450&h=290&q=90" class="img-responsive" alt="Capa do Post">
@@ -63,33 +61,30 @@ $post = new Read;
                             <?php echo htmlspecialchars_decode($workshop_msg); ?>
                         </div>             
 
-                        <button class="btn btn-custom-brand mt20">Inscrever-se</button>     
-
-                        <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-                        <!-- <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;"> -->
-                        <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-<!--                         <input type="hidden" name="code" value="BEA99D2F7F7FBA5004A8BF923973BA39" />
-                        <input type="hidden" name="iot" value="button" />
-                        <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/94x52-pagar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
-                        </form>
-                        <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script> -->
-                        <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->  
+                        <button type="button" id="btn-inscrever" class="btn btn-custom-brand mt20 mb20">Quero me inscrever!</button>
 
                     </div>
 
+                </div>
+
+                <div class="clearfix"></div>
+                
             </div>
+
+            <div class="form-cadastro">
+                <div class="container">
+                    <?php include('inc/form-cadastro.inc.php');?>                   
+                </div>
+            </div>           
 
             <div class="clearfix"></div>
 
             <hr>
 
-            <div class="col-xs-12 reset-indent"> 
-
-            
-            </div>
-
-            <div class="col-lg-12">
+            <div class="col-xs-12 facebook-comment">
                 <div class="fb-comments" data-href="<?= HOME ?>/workshop/<?= $workshop_url; ?>"  data-width="100%" data-numposts="5"></div>
             </div>
+
         </div>
     </section>
+

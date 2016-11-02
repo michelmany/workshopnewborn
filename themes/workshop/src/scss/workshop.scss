@@ -1,0 +1,61 @@
+.form-cadastro {
+	display: none;
+	background-color: $off-white;
+	padding: 43px 0;
+	p {
+		line-height: 0.8;
+	}
+	h6 {
+	  	letter-spacing: normal;
+	}
+	form {
+		input:not([type=radio]){
+			border-radius: 0;
+			height: 40px;
+			@media screen and (max-width: 991px) {
+				margin: 10px 0;
+				height: 60px;
+			}
+		}
+		textarea { 
+			border-radius: 0;
+			@media screen and (max-width: 991px) {
+				margin: 10px 0;
+			}			
+		}
+		textarea:focus,
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="datetime"]:focus,
+		input[type="datetime-local"]:focus,
+		input[type="date"]:focus,
+		input[type="month"]:focus,
+		input[type="time"]:focus,
+		input[type="week"]:focus,
+		input[type="number"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="search"]:focus,
+		input[type="tel"]:focus,
+		input[type="color"]:focus,
+		.uneditable-input:focus {   
+		  border-color: rgba(0, 0, 0, 0.2);
+		  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.3);
+		  outline: 0 none;
+		}		
+	}
+
+	&-retorno {
+		background-color: $off-white;
+		padding: 43px 0;
+		text-align: center;
+
+		&-message {
+			i {
+				font-size: 8em;
+				color: #bddcd9;
+			}
+			
+		}
+	}
+}

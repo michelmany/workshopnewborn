@@ -273,11 +273,6 @@ endif;
 									<span class="title">Listar Cursos</span>
 								</a>
 							</li>
-							<li>
-								<a href="painel.php?exe=workshops/inscritos">
-									<span class="title">Inscrições</span>
-								</a>
-							</li>
 						</ul>
 					</li>
 					<li class="<?php if (in_array('albuns', $linkto)) echo 'active opened'; ?> auto-inherit-active-class">

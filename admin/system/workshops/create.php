@@ -131,9 +131,9 @@ endif;
 
 						<!-- Investimento -->
 						<div class="form-group"> 
-							<label class="col-sm-3 control-label" for="field-1">Investimento</label> 
+							<label class="col-sm-3 control-label" for="field-1">Investimento: R$</label> 
 							<div class="col-sm-9"> 
-								<textarea class="form-control" rows="5" name="workshop_investimento" required><?php if($form['workshop_investimento']) echo $form['workshop_investimento'] ?></textarea>										
+								<textarea class="form-control" rows="5" name="workshop_investimento" placeholder="Somente Número. Exemplo: 1450" required><?php if($form['workshop_investimento']) echo $form['workshop_investimento'] ?></textarea>										
 							</div> 
 						</div>															
 						

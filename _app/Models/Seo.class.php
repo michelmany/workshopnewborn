@@ -95,7 +95,7 @@ class Seo {
             //SEO:: LISTA ALBUNS - PORTFOLIO PAGE
             case 'portfolios':
                 $this->Data = ["Portfolios | " . SITENAME, SITEDESC, HOME . '/portfolios/' . $this->Link, INCLUDE_PATH . '/images/site.png'];
-                break;     
+                break;
             
             //SEO:: ALBUM SINGLE
             case 'portfolio':
@@ -140,7 +140,7 @@ class Seo {
                     // $Update = new Update();
                     // $Update->ExeUpdate("nit_workshops", $ArrUpdate, "WHERE workshop_id = :workshopid", "workshopid={$workshop_id}");
                 endif;
-                break;                              
+                break;                                             
 
             //SEO:: CATEGORIA
             case 'categoria':
