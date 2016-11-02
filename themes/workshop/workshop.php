@@ -81,9 +81,13 @@ $post = new Read;
 
             <hr>
 
-            <div class="col-xs-12 facebook-comment">
-                <div class="fb-comments" data-href="<?= HOME ?>/workshop/<?= $workshop_url; ?>"  data-width="100%" data-numposts="5"></div>
+            <div class="container">
+                <div class="col-xs-12 mt30 facebook-comment">
+                    <div class="fb-comments" data-href="<?= HOME ?>/workshop/<?= $workshop_url; ?>"  data-width="100%" data-numposts="5"></div>
+                </div>
             </div>
+
+            <div class="clearfix"></div>
 
         </div>
     </section>
