@@ -290,6 +290,18 @@ endif;
 							</div>
 						</div>
 
+					<div class="form-group-separator"></div>
+
+					<div class="form-group"> 
+						<label class="col-sm-3 control-label" for="field-1"><i class="fa fa-youtube"></i> Video</label> 
+						<div class="col-sm-9">
+						<div class="input-group">
+							<span class="input-group-addon">https://www.youtube.com/watch?v=</span>
+							<input type="text" class="form-control" placeholder="" name="user_video" value="<?php if (isset($user_video)) echo $user_video; ?>"> 
+						</div> 
+						</div>
+					</div>						
+
 						<div class="form-group-separator"></div>
 
 						<!-- ATIVAR FUTURAMENTE

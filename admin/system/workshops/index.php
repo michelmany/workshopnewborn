@@ -76,13 +76,17 @@ endif;
 					        $read->ExeRead("nit_inscritos", "WHERE workshop_id = :wsid", "wsid={$row['workshop_id']}");
 					        $Inscritos = $read->getRowCount();
 
+					        $classBtn = (($read->getRowCount() >= 1) ? 'btn-success' : 'btn-default disabled');
+
 							 ?> 
 							<tr>
 								<td><?php echo $workshop_nome; ?></td>
 								<td><?php echo Check::Words($workshop_msg, 7); ?></td>
 								<td><?php echo date('d/m/Y', strtotime($workshop_date)); ?></td>
 								<td><?php echo $workshop_vagas; ?></td>
-								<td class="text-center"><a class="btn btn-success" href="painel.php?exe=workshops/inscritos&id=<?= $workshop_id; ?>" title="Detalhes"><?php echo $Inscritos; ?></a></td>
+								<td class="text-center">
+									<a class="btn <?= $classBtn; ?>" href="painel.php?exe=workshops/inscritos&id=<?= $workshop_id; ?>" title="Detalhes"><?php echo $Inscritos; ?></a>
+								</td>
 								<td>
 									<a class="btn btn-orange" href="painel.php?exe=workshops/update&id=<?= $workshop_id; ?>" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa-wrench"></i></a>
 			                        <a class="btn btn-danger" onclick="confirm_modal('painel.php?exe=workshops/index&delid=<?php echo $workshop_id; ?>');" data-toggle="tooltip" data-placement="top" title="excluir">

@@ -50,7 +50,9 @@ $post = new Read;
         <div class="col-sm-6">
             <!-- Video Youtube -->
             <div class="video-container mt50">
-                <iframe width="900" height="506" src="https://www.youtube.com/embed/eJsf1vNCSJo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            <?php if (isset($user_video) && !empty($user_video)): ?>
+                <iframe width="900" height="506" src="https://www.youtube.com/embed/<?php echo $user_video; ?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+              <?php endif; ?> 
             </div>
         </div>
 
