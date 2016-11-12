@@ -8,7 +8,7 @@
 
     <!-- Itens do pagamento (ao menos um item é obrigatório) -->  
     <input name="itemId1" type="hidden" value="<?= $workshop_id; ?>">  
-    <input name="itemDescription1" type="hidden" value="<?php htmlentities($workshop_nome, 0, 'UTF-8'); ?>">  
+    <input name="itemDescription1" type="hidden" value="<?= htmlentities($workshop_nome, 0, 'UTF-8'); ?>">  
     <input name="itemAmount1" type="hidden" value="<?= number_format($workshop_investimento, 2, '.', ''); ?>">
     <input name="itemQuantity1" type="hidden" value="1">  
 <!--     <input name="itemWeight1" type="hidden" value="1000"> -->
