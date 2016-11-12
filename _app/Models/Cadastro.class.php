@@ -8,6 +8,7 @@
 class Cadastro {
 
     private $Data;
+    private $DataPedido;
     private $User;
     private $Error;
     private $Result;
@@ -28,7 +29,7 @@ class Cadastro {
         // $this->setData();
         $this->Create();
 
-    }
+    }  
 
     /**
      * <b>Verificar Cadastro:</b> Retorna TRUE se o cadastro ou update for efetuado ou FALSE se não.
@@ -95,12 +96,21 @@ class Cadastro {
         $Create = new Create;
         $Create->ExeCreate(self::Entity, $this->Data);
 
+
+
+
         if ($Create->getResult()):
 
             #Se usuário cadastrado com sucesso, crio ele também na tabela nit_site_config.
             $this->Result = $Create->getResult();
-            // return "Olá, {$this->Data['cad_aluno']}";        
+            // return "Olá, {$this->Data['cad_aluno']}";
 
+            #cadastra pedido.
+            $this->DataPedido['ped_status'] = 'Pendente';
+            $this->DataPedido['ped_date'] = date('Y-m-d H:i:s');
+            $this->DataPedido['inscrito_id'] = $this->Result;
+            $this->DataPedido['workshop_id'] = $this->Data['workshop_id'];
+            $this->CreatePedido();
 
             // #seto apenas as variáveis que vão para a tabela nit_site_config.
             // $DataConfig['user_id'] = $this->Result;
@@ -121,6 +131,11 @@ class Cadastro {
             $this->Error = ["Oppsss: Ocorreu algum erro ao tentar fazer seu cadastro, por favor tente outra vez.", WS_ERROR];
             $this->Result = false;
         endif;
+    }
+ 
+    private function CreatePedido() {
+        $CreatePedido = new Create;
+        $CreatePedido->ExeCreate('nit_pedidos', $this->DataPedido);    
     }
 
     private function ReturnLastSaved() {

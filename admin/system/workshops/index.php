@@ -61,7 +61,6 @@ endif;
 					<thead>
 						<tr>
 							<th>Título</th>
-							<th>Detalhes</th>
 							<th width="100">Data</th>
 							<th width="100">Vagas</th>
 							<th width="100">Inscritos</th>
@@ -80,8 +79,7 @@ endif;
 
 							 ?> 
 							<tr>
-								<td><?php echo $workshop_nome; ?></td>
-								<td><?php echo Check::Words($workshop_msg, 7); ?></td>
+								<td><?php echo Check::Words($workshop_nome, 7); ?></td>
 								<td><?php echo date('d/m/Y', strtotime($workshop_date)); ?></td>
 								<td><?php echo $workshop_vagas; ?></td>
 								<td class="text-center">
