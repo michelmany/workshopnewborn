@@ -2260,6 +2260,36 @@ $('.j_btn_salva_account').submit(function(){
 });
 
 
+$('.j_update_status').change(function() {
+
+      var selected = $(this).find('option:selected').text();
+      var ped_id = $(this).data('pedidoid');
+
+      console.log(selected);
+
+		$.ajax({
+			url: '../admin/system/workshops/update-status-pedido.php',
+			data: 'ped_status='+selected+'&ped_id='+ped_id,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+
+	           	//Mostra o TOAST com a mensagem de sucesso
+				var opts = {
+				"closeButton": true,
+				"positionClass": "toast-top-right",
+				};
+				toastr.success("O Status do Pedido foi atualizado com sucesso!", "Olá!", opts); 
+
+			}
+
+		});
+
+
+
+  });
+
+
 
 
 // EXIBE A BARRA DE DETALHES DO ÁLBUM

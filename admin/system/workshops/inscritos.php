@@ -9,7 +9,7 @@ endif;
 <!-- Cabeçalho -->
 <div class="page-title">
 	<div class="title-env">
-		<h1 class="title">Cursos</h1>
+		<h1 class="title">Pedidos</h1>
 		<p class="description">Inscritos no curso</p>
 	</div>
 	<div class="breadcrumb-env">
@@ -28,7 +28,12 @@ endif;
 		    $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);
 		    if ($empty):
 		        WSErro("Oppsss: Você tentou editar um <b>workshop</b> que não existe!", WS_ALERT);
-		    endif;		
+		    endif;
+
+		    $workshop_id = filter_input(INPUT_GET, 'id');
+		    if (!$workshop_id):
+		        WSErro("Oppsss: Você tentou editar um <b>workshop</b> que não existe!", WS_ALERT);
+		    endif;			    
 
 		 	# MOSTRA A MENSAGEM DE SUCESSO VINDO DA PÁGINA CROP-IMAGE.PHP #
 	        if(!empty($_SESSION['sucesso'])):
@@ -53,7 +58,7 @@ endif;
 		
 		<?php # FAZ A LEITURA NO BANCO E FAZ O LOOP PARA MOSTRAR OS RESULTADOS #
 		$read = new Read;
-		$read->ExeRead("nit_pedidos", "ORDER BY ped_date DESC");
+		$read->ExeRead("nit_pedidos", "WHERE workshop_id = :wsid ORDER BY ped_date DESC", "wsid={$workshop_id}");
 		if (!$read->getResult()):
 			#Se não encontrar resultados no banco mostra mensagem. Se encontrar, mostra a tabela.
 			WSErro("Olá, você ainda não cadastrou nenhum curso no sistema! ", WS_INFOR);
@@ -99,9 +104,11 @@ endif;
 								<td><?php echo Check::Words($cad_aluno, 7); ?></td>
 								<td><?php echo $cad_email; ?></td>
 								<td><?php echo date('d/m/Y', strtotime($ped_date)); ?></td>
-								<td class="text-center"><span class="label label-<?= $classBtn; ?>"><?php echo $ped_status; ?></span></td>
-								<td>
-									<a class="btn btn-orange" href="painel.php?exe=workshops/update&id=<?= $workshop_id; ?>" data-toggle="tooltip" data-placement="top" disabled title="Editar"><i class="fa-wrench"></i></a>
+								<td class="text-center">
+									<span class="label label-<?= $classBtn; ?>"><?php echo $ped_status; ?></span>
+								</td>
+								<td class="text-center">
+									<a class="btn btn-orange" href="painel.php?exe=workshops/inscritos-edit&ped_id=<?= $ped_id; ?>" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa-wrench"></i></a>
 									<?php /* 
 			                        <a class="btn btn-danger" onclick="confirm_modal('painel.php?exe=workshops/inscritos&delid=<?php echo $ped_id; ?>');" data-toggle="tooltip" data-placement="top" title="excluir">
 			                        <i class="fa fa-remove"></i></a>

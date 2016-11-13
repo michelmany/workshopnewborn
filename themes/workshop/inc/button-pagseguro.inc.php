@@ -1,6 +1,8 @@
 
 <!-- Declaração do formulário -->  
-<form method="post" target="pagseguro" action="https://pagseguro.uol.com.br/v2/checkout/payment.html">  
+<form method="post" target="_self" action="https://pagseguro.uol.com.br/v2/checkout/payment.html"> 
+
+    <input name="encoding" type="hidden" value="UTF-8">   
           
     <!-- Campos obrigatórios -->  
     <input name="receiverEmail" type="hidden" value="vickateo@gmail.com">  
@@ -8,7 +10,7 @@
 
     <!-- Itens do pagamento (ao menos um item é obrigatório) -->  
     <input name="itemId1" type="hidden" value="<?= $workshop_id; ?>">  
-    <input name="itemDescription1" type="hidden" value="<?= htmlentities($workshop_nome, 0, 'UTF-8'); ?>">  
+    <input name="itemDescription1" type="hidden" value="<?= $workshop_nome; ?>">  
     <input name="itemAmount1" type="hidden" value="<?= number_format($workshop_investimento, 2, '.', ''); ?>">
     <input name="itemQuantity1" type="hidden" value="1">  
 <!--     <input name="itemWeight1" type="hidden" value="1000"> -->
