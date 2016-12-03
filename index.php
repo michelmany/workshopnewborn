@@ -28,7 +28,7 @@ $Session = new Session;
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
-        <link rel="stylesheet" href="<?= BASE ?>/_cdn/font-awesome-4.6.3/css/font-awesome.min.css">
+        <script src="https://use.fontawesome.com/0a4a5b9272.js"></script>
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/plugins/allcss.css">
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/main.css">
         <link rel="icon" href="<?= INCLUDE_PATH; ?>/favicon.ico" />
