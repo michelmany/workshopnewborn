@@ -31,6 +31,7 @@ $Session = new Session;
         <link rel="stylesheet" href="<?= BASE ?>/_cdn/font-awesome-4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/plugins/allcss.css">
         <link rel="stylesheet" type="text/css" href="<?= INCLUDE_PATH; ?>/css/main.css">
+        <link rel="icon" href="<?= INCLUDE_PATH; ?>/favicon.ico" />
 
     </head>
     <body>
