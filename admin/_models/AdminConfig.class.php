@@ -1,30 +1,22 @@
 <?php
-
 class AdminConfig {
-
     private $Data;
     private $Post;
     private $Error;
     private $Result;
-
     //Nome da tabela no banco de dados
     const Entity = 'nit_site_config';
-
     /**
      * <b>Atualizar Post:</b> Envelope os dados em uma array atribuitivo e informe o id de um 
      * post para atualiza-lo na tabela!
      * @param INT $PostId = Id do post
      * @param ARRAY $Data = Atribuitivo
      */
-    public function ExeUpdate($UserId, array $Data) {
+    public function ExeUpdate($UserId = 1, array $Data) {
         $this->Post = (int) $UserId;
         $this->Data = $Data;
-
             $this->setData();
-
-
             if (!isset($this->Data['user_logo'])) :
-
                 #Se não for setado, vai excluir os arquivos da pasta e limpar no banco.
                 $readCapa = new Read;
                 $readCapa->ExeRead(self::Entity, "WHERE user_id = :userid", "userid={$this->Post}");
@@ -33,9 +25,7 @@ class AdminConfig {
                     unlink($capa);
                 endif;                      
                 $this->Update();                 
-
             else:
-
                 if(empty($this->Data['user_logo']['tmp_name'])):
                     #Se tiver vazio, vai atualizar sem mexer no user_logo no banco.
                     unset($this->Data['user_logo']);        
@@ -48,12 +38,9 @@ class AdminConfig {
                     if (file_exists($capa) && !is_dir($capa)):
                         unlink($capa);
                     endif;
-
                     $uploadCapa = new Upload;
                     $uploadCapa->Image($this->Data['user_logo'], 'user-logo-id'.$this->Post, null, 'images/user-id'.$this->Post);             
-   
                 endif;                       
-        
             endif;
 
             # se o arquivo for salvo na pasta, envia o caminho para o banco.
@@ -68,7 +55,6 @@ class AdminConfig {
                 endif;    
                 $this->Update();
             endif;
-
     }
 
     /**
@@ -98,14 +84,10 @@ class AdminConfig {
     private function setData() {
         $Cover = $this->Data['user_logo'];
         unset($this->Data['user_logo']);
-
         $this->Data = array_map('strip_tags', $this->Data);
         $this->Data = array_map('trim', $this->Data);
         $this->Data['user_logo'] = $Cover;
-
     }
-
-
     //Atualiza o post no banco!
     private function Update() {
         $Update = new Update;
@@ -115,5 +97,4 @@ class AdminConfig {
             $this->Result = true;
         endif;
     }
-
 }
