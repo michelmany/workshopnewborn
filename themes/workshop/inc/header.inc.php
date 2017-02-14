@@ -45,7 +45,7 @@ if (!empty($data[1])) {
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <?php if( isset($pagina) && ($pagina == 'portfolios' || $pagina == 'portfolio' || $pagina == 'posts' || $pagina == 'post')): ?>
+                    <?php if( isset($pagina) && ($pagina == 'portfolios' || $pagina == 'portfolio' || $pagina == 'posts' || $pagina == 'post' || $pagina == 'workshop')): ?>
                         <li><a href="<?= HOME ?>/portfolios/" class="page-scroll">Galeria</a></li>
                         <li><a href="javascript:window.history.go(-1)">Voltar</a></li>
                    
