@@ -81,7 +81,7 @@ $post = new Read;
             <div class="tracinho"></div>
         </div>
         <?php #Traz os albuns do banco.
-        $post->ExeRead("nit_workshops", "ORDER BY workshop_id DESC LIMIT :limit", "limit=3");
+        $post->ExeRead("nit_workshops", "ORDER BY workshop_id DESC LIMIT :limit", "limit=4");
         if (!$post->getResult()):
             echo '<div class="container text-center">';
                 WSErro('Você ainda não fez nenhuma postagem no Blog!', WS_INFOR);  
@@ -89,26 +89,9 @@ $post = new Read;
         else:
         ?>
 
-        <?php if ( $post->getRowCount() == 1 ): ?>
+          <div class="carousel-cursos">
             <?php foreach ($post->getResult() as $posts): extract($posts); ?>
-            <div class="col-xs-12">
-                <div class="section-workshops-item">
-                    <img src="<?php echo BASE; ?>/tim.php?src=uploads/<?php echo $workshop_capa; ?>&w=380&h=253&q=90" class="img-responsive" alt="Capa do Post">
-                    <div class="section-workshops-item-content">
-                        <div class="section-workshops-title mb20">
-                            <a href="<?php echo HOME; ?>/workshop/<?php echo $workshop_url; ?>" class="text-title"><h5><?php echo Check::Words($workshop_nome, 9); ?></h5></a>
-                        </div>
-                        <p><?php echo Check::Words($workshop_msg, 20); ?></p>
-                        <a href="<?= HOME ?>/workshop/<?php echo $workshop_url; ?>" class="btn btn-custom-rosa mt20">saiba mais</a>
-                    </div>           
-                </div>
-            </div>
-            <?php endforeach; ?>   
-        <?php endif; ?>
 
-        <?php if ( $post->getRowCount() == 2 ): ?>
-            <?php foreach ($post->getResult() as $posts): extract($posts); ?>
-            <div class="col-xs-12 col-sm-6">
                 <div class="section-workshops-item">
                     <img src="<?php echo BASE; ?>/tim.php?src=uploads/<?php echo $workshop_capa; ?>&w=380&h=253&q=90" class="img-responsive" alt="Capa do Post">
                     <div class="section-workshops-item-content">
@@ -119,26 +102,12 @@ $post = new Read;
                         <a href="<?= HOME ?>/workshop/<?php echo $workshop_url; ?>" class="btn btn-custom-rosa mt20">saiba mais</a>
                     </div>           
                 </div>
-            </div>
-            <?php endforeach; ?>   
-        <?php endif; ?>             
 
-        <?php if ( $post->getRowCount() == 3 ): ?>
-            <?php foreach ($post->getResult() as $posts): extract($posts); ?>
-            <div class="col-sm-12 col-md-4">
-                <div class="section-workshops-item">
-                    <img src="<?php echo BASE; ?>/tim.php?src=uploads/<?php echo $workshop_capa; ?>&w=380&h=253&q=90" class="img-responsive" alt="Capa do Post">
-                    <div class="section-workshops-item-content">
-                        <div class="section-workshops-title mb20">
-                            <a href="<?php echo HOME; ?>/workshop/<?php echo $workshop_url; ?>" class="text-title"><h5><?php echo Check::Words($workshop_nome, 9); ?></h5></a>
-                        </div>
-                        <p><?php echo Check::Words($workshop_msg, 20); ?></p>
-                        <a href="<?= HOME ?>/workshop/<?php echo $workshop_url; ?>" class="btn btn-custom-rosa mt20">saiba mais</a>
-                    </div>           
-                </div>
-            </div>
             <?php endforeach; ?>   
-        <?php endif; ?>  
+            </div>
+
+   
+
 
         <?php endif; ?> 
 

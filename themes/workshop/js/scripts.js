@@ -3,6 +3,21 @@ $(window).load(function () {
 	$(".loader").fadeOut("slow");
 });
 
+//Carrega o OWN SLIDE (Carrousel) - CURSOS
+$(document).ready(function() {
+ 
+  $(".carousel-cursos").owlCarousel({
+	autoPlay: 3000, //Set AutoPlay to 3 seconds
+	items : 3,
+	itemsDesktop : [1199,3],
+	itemsDesktopSmall : [979,3],
+	itemsTablet: [768, 2],
+	itemsMobile : [479, 1],    
+	pagination: true
+ 
+  });
+ 
+});
 
 //Carrega o OWN SLIDE (Carrousel) - VIDEOS
 $(document).ready(function() {
