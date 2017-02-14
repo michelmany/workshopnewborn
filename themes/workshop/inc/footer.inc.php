@@ -151,7 +151,7 @@
                                     <input type="submit" class="btn btn-custom" name="SendFormContato" value="Enviar mensagem" />
                                     <img class="form_load" style="display:none;" src="<?= INCLUDE_PATH; ?>/img/load.gif" alt="[CARREGANDO...]" title="CARREGANDO..."/>
                                     <input type="hidden" name="DestinoEmail" value="<?= $user_email_destino = (isset($user_email_destino) && !empty($user_email_destino) ? $user_email_destino : $user_email); ?>">
-                                    <input type="hidden" name="DestinoNome" value="<?= $dados_cliente['user_fullname']; ?>">
+                                    <input type="hidden" name="DestinoNome" value="<?= $user_fullname = (isset($user_fullname) && !empty($user_fullname) ? $user_fullname : "Viviane Teodoro"); ?>">
                                 </div>
                         </form><!-- close form -->
                     </div> <!-- / modal body -->
