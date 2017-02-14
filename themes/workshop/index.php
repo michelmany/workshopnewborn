@@ -81,7 +81,7 @@ $post = new Read;
             <div class="tracinho"></div>
         </div>
         <?php #Traz os albuns do banco.
-        $post->ExeRead("nit_workshops", "ORDER BY workshop_id DESC LIMIT :limit", "limit=4");
+        $post->ExeRead("nit_workshops", "ORDER BY workshop_id DESC");
         if (!$post->getResult()):
             echo '<div class="container text-center">';
                 WSErro('Você ainda não fez nenhuma postagem no Blog!', WS_INFOR);  
