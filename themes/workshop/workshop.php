@@ -57,7 +57,7 @@ $post = new Read;
                         <div class="section-workshop-content mt20">
                             <p><strong>Agenda:</strong> <?php echo date('d/m/Y', strtotime($workshop_date)); ?></p>
                             <p><strong>Local:</strong> <?php echo $workshop_local; ?></p><br>
-                            <p><strong>Investimento:</strong> <?php echo $workshop_investimento; ?></p><br>
+                            <p><strong>Investimento: R$ </strong> <?php echo number_format($workshop_investimento, 2, ',', ''); ?></p><br>
                             <p><strong>Detalhes:</strong></p>
                             <?php echo htmlspecialchars_decode($workshop_msg); ?>
                         </div>             

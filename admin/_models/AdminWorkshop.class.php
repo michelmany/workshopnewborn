@@ -119,7 +119,7 @@ class AdminWorkshop {
         //volto com as variaveis dentro do $this->Data.
         $this->Data['workshop_capa'] = $Cover;
         $this->Data['workshop_msg'] = $Workshop_msg;
-        $this->Data['workshop_investimento'] = number_format($workshop_investimento, 2, '.', '');
+        $this->Data['workshop_investimento'] = number_format($this->Data['workshop_investimento'], 2, '.', '');
     }
 
     //Verifica o NAME post. Se existir adiciona um pós-fix -Count

@@ -160,9 +160,9 @@ endif;
 
 						<!-- Investimento -->
 						<div class="form-group"> 
-							<label class="col-sm-3 control-label" for="field-1">Investimento</label> 
+							<label class="col-sm-3 control-label" for="field-1">Investimento: R$</label> 
 							<div class="col-sm-9"> 
-								<textarea class="form-control" rows="5" name="workshop_investimento" required><?php if (!empty($row['workshop_investimento'])) echo $row['workshop_investimento']; ?></textarea>										
+								<textarea class="form-control" rows="5" name="workshop_investimento" required><?php if (!empty($row['workshop_investimento'])) echo number_format($row['workshop_investimento'], 2, ',', '');  ?></textarea>										
 							</div> 
 						</div>															
 						
