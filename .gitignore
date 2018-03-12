@@ -2,5 +2,6 @@
 _app/Config.inc.php
 uploads/cache/*
 uploads
-.gitignore
 *.sql
+.vscode
+node_modules
