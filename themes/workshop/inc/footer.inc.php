@@ -6,8 +6,8 @@
             </div>      
         </div>
         <div data-is
-             data-is-api="<?= INCLUDE_PATH; ?>/plugins/api/"
-             data-is-source="@<?php echo $user_instagram; ?>"
+             data-is-api="<?= INCLUDE_PATH; ?>/plugins/api/index.php"
+             data-is-source="@viviteofoto"
              data-is-width="auto"
              data-is-height="auto"
              data-is-columns="6"

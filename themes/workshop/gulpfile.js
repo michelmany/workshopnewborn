@@ -9,7 +9,7 @@ var sass        = require('gulp-sass');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 var rename      = require('gulp-rename');
-var minifyCss   = require('gulp-minify-css');
+var minifyCss   = require('gulp-clean-css');
 const imagemin  = require('gulp-imagemin');
 const pngquant  = require('imagemin-pngquant');
 

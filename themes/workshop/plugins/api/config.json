@@ -2,5 +2,11 @@
   "media_limit": 100,
   "cache_time": 3600,
   "allowed_usernames": "*",
-  "allowed_tags": "*"
+  "allowed_tags": "*",
+  "debug": "false",
+  "proxy": {
+    "server": "",
+    "user": "",
+    "password": ""
+  }
 }
